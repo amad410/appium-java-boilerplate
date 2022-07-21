@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="Suite" parallel="tests">
+    <test name="iOS">
+        <listeners>
+            <listener class-name="Listeners.TestListener" />
+        </listeners>
+        <parameter name="platformName" value="iOS" />
+        <classes>
+            <class name="POM.Sample_iOS_POM_Test"/>
+        </classes>
+    </test>
+</suite>

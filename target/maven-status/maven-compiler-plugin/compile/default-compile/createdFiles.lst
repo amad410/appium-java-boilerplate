@@ -1,0 +1,17 @@
+Pages\MainPage.class
+Utils\AndroidUtilities.class
+Utils\iOSUtilities.class
+Base\BaseTest.class
+Listeners\TestListener.class
+Base\BaseSteps.class
+Utils\ConfigFileReader.class
+Utils\FileUtils.class
+Utils\TestUtils.class
+Pages\BasePage.class
+Utils\PropertyUtils.class
+Utils\StringParser.class
+Utils\WaitUtils.class
+Utils\JsonReader.class
+Reports\Report.class
+Utils\HttpHelper.class
+Utils\CapabilitiesReader.class

@@ -1,0 +1,16 @@
+iOS\Sample_iOS_Physical_Device.class
+Android\Sample_Android_Hybrid_App.class
+Android\Sample_Android_BrowserStack.class
+iOS\Sample_iOS_WebTest.class
+Android\Sample_Android_WebTest.class
+POM\Sample_iOS_POM_Test.class
+POM\Sample_Android_POM_Test.class
+iOS\SampleiOSTest.class
+SampleTest.class
+Android\Sample_Android_Built_In_App.class
+definitions\SampleSteps.class
+iOS\Sample_iOS_Built_In_App.class
+Android\SampleAndroidTest.class
+iOS\Sample_iOS_BrowserStack.class
+runner\TestRunner.class
+Android\Sample_Android_Physical_Device.class

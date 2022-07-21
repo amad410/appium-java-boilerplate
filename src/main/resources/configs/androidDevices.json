@@ -1,0 +1,22 @@
+[
+  {
+    "name": "device1",
+    "caps": {
+      "platformName": "Android",
+      "platformVersion": "9.0",
+      "deviceName": "Nexus",
+      "automationName": "UiAutomator2",
+      "app": "/path/to/my.apk"
+    }
+  },
+  {
+    "name": "device2",
+    "caps": {
+      "platformName": "Android",
+      "platformVersion": "9.0",
+      "deviceName": "Nexus",
+      "automationName": "UiAutomator2",
+      "app": "/path/to/my.apk"
+    }
+  }
+]
