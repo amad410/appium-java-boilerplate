@@ -14,7 +14,6 @@ import org.apache.logging.log4j.ThreadContext;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.*;
-
 import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
