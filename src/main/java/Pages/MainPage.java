@@ -8,7 +8,7 @@ import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 
 public class MainPage extends BasePage{
 
-    @AndroidFindBy(id = "foobar")
+    @AndroidFindBy(accessibility = "App")
     @iOSXCUITFindBy(accessibility = "foo-bar")
     MobileElement fooBarBtn;
 

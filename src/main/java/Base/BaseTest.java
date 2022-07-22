@@ -46,7 +46,7 @@ public class BaseTest extends AbstractTestNGCucumberTests {
     @Parameters({"platformName"})
     @BeforeTest
     public void beforeTest(String platformName) throws Exception {
-        utils = new TestUtils();
+
         setDateTime(utils.dateTime());
         setPlatform(platformName);
         URL url;
@@ -63,10 +63,11 @@ public class BaseTest extends AbstractTestNGCucumberTests {
 
         try{
             props = new Properties();
-            String propFileName = "config.properties";
+            //String propFileName = "config.properties";
+            String propFileName = System.getProperty("user.dir")+"/src/main/resources/Configuration.properties";
             String xmlFileName = "strings/strings.xml";
 
-            utils.log().info("load " + propFileName);
+           /* utils.log().info("load " + propFileName);
             inputStream = getClass().getClassLoader().getResourceAsStream(propFileName);
             props.load(inputStream);
             setProps(props);
@@ -76,7 +77,7 @@ public class BaseTest extends AbstractTestNGCucumberTests {
             setStrings(utils.parseStringXML(stringsis));
             //route logs to separate file for each thread
             ThreadContext.put("ROUTINGKEY", strFile);
-            utils.log().info("log path: " + strFile);
+            utils.log().info("log path: " + strFile);*/
 
             switch(platformName) {
                 case "Android":
@@ -109,7 +110,7 @@ public class BaseTest extends AbstractTestNGCucumberTests {
         AppiumDriver driver;
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("platformName", "Android");
-        capabilities.setCapability("platformVersion", "9.0");
+        capabilities.setCapability("platformVersion", "11.0");
         capabilities.setCapability("deviceName", "Android Emulator");
         capabilities.setCapability("app",
                 System.getProperty("user.dir") + "/apps/ApiDemos.apk");
@@ -136,6 +137,7 @@ public class BaseTest extends AbstractTestNGCucumberTests {
 
     @BeforeSuite
     public void beforeSuite() throws Exception, Exception {
+        utils = new TestUtils();
         ThreadContext.put("ROUTINGKEY", "ServerLogs");
         //server = getAppiumService(); // -> If using Mac, uncomment this statement and comment below statement
         server = getAppiumServerDefault(); // -> If using Windows, uncomment this statement and comment above statement
