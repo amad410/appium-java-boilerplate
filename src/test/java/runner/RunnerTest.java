@@ -18,7 +18,7 @@ import java.io.IOException;
         ,glue= {"definitions"}
        /* ,plugin= {"pretty","html:target/cucumber-html-report.html"}*/
         ,plugin = { "com.cucumber.listener.ExtentCucumberFormatter:target/bdd-report.html"})
-public class TestRunner extends AbstractTestNGCucumberTests {
+public class RunnerTest extends AbstractTestNGCucumberTests {
 
     BaseTest baseTest = new BaseTest();
 
@@ -35,7 +35,7 @@ public class TestRunner extends AbstractTestNGCucumberTests {
 
     @AfterClass
     public static void writeExtentReport() throws IOException {
-        Reporter.loadXMLConfig(new File(ConfigFileReader.getReportConfigPath("Configuration.properties")));
+        Reporter.loadXMLConfig(new File(ConfigFileReader.getReportConfigPath("configs/Android.properties")));
         Reporter.setSystemInfo("User Name", System.getProperty("user.name"));
         Reporter.setSystemInfo("Time Zone", System.getProperty("user.timezone"));
     }

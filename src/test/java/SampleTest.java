@@ -8,7 +8,7 @@ public class SampleTest {
 
     @Test
     public void sampleTest() throws IOException {
-        ConfigFileReader.getReportConfigPath("Configuration.properties");
+        ConfigFileReader.getReportConfigPath("configs/Android.properties");
         System.out.println("test");
 
     }

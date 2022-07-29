@@ -6,7 +6,7 @@
     <parameter name="platformName" value="Android" />
     <test name="Cucumber Tests">
         <classes>
-            <class name="runner.TestRunner"/>
+            <class name="runner.RunnerTest"/>
         </classes>
     </test>
 </suite>

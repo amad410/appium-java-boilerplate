@@ -10,14 +10,14 @@ import io.appium.java_client.service.local.AppiumDriverLocalService;
 import io.appium.java_client.service.local.AppiumServiceBuilder;
 import io.appium.java_client.service.local.flags.GeneralServerFlag;
 import io.cucumber.testng.AbstractTestNGCucumberTests;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.ThreadContext;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.*;
 
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import java.net.MalformedURLException;
 import java.net.ServerSocket;
 import java.net.URL;
@@ -34,6 +34,8 @@ public class BaseTest extends AbstractTestNGCucumberTests {
     protected static ThreadLocal <String> dateTime = new ThreadLocal<String>();
     protected static ThreadLocal <String> deviceName = new ThreadLocal<String>();
     TestUtils utils;
+    InputStream inputStream;
+    //static Logger someLog = LogManager.getLogger(BaseTest.class.getName());
 
    public AppiumDriver getDriver() {
         return _driver.get();
@@ -46,7 +48,7 @@ public class BaseTest extends AbstractTestNGCucumberTests {
     @Parameters({"platformName"})
     @BeforeTest
     public void beforeTest(String platformName) throws Exception {
-
+        //someLog.info("test this");
         setDateTime(utils.dateTime());
         setPlatform(platformName);
         URL url;
@@ -60,24 +62,17 @@ public class BaseTest extends AbstractTestNGCucumberTests {
         if (!logFile.exists()) {
             logFile.mkdirs();
         }
+        ThreadContext.put("ROUTINGKEY", strFile);
+        utils.log().info("log path: " + strFile);
 
         try{
-            props = new Properties();
-            //String propFileName = "config.properties";
-            String propFileName = System.getProperty("user.dir")+"/src/main/resources/Configuration.properties";
-            String xmlFileName = "strings/strings.xml";
 
-           /* utils.log().info("load " + propFileName);
-            inputStream = getClass().getClassLoader().getResourceAsStream(propFileName);
-            props.load(inputStream);
-            setProps(props);
-
+            /*String xmlFileName = "strings/strings.xml";
             utils.log().info("load " + xmlFileName);
             stringsis = getClass().getClassLoader().getResourceAsStream(xmlFileName);
-            setStrings(utils.parseStringXML(stringsis));
+            setStrings(utils.parseStringXML(stringsis));*/
             //route logs to separate file for each thread
-            ThreadContext.put("ROUTINGKEY", strFile);
-            utils.log().info("log path: " + strFile);*/
+
 
             switch(platformName) {
                 case "Android":
@@ -106,27 +101,43 @@ public class BaseTest extends AbstractTestNGCucumberTests {
     }
 
 
-    public void Android_setUp() throws MalformedURLException {
+    public void Android_setUp() throws IOException {
         AppiumDriver driver;
+        Properties prop = new Properties();
+        String propFileName = System.getProperty("user.dir")+"/src/main/resources/configs/Android.properties";
+
+        utils.log().info("load " + propFileName);
+        inputStream = new FileInputStream(propFileName);
+        setProps(prop);
+        props.get().load(inputStream);
+
         DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability("platformName", "Android");
-        capabilities.setCapability("platformVersion", "11.0");
-        capabilities.setCapability("deviceName", "Android Emulator");
+        capabilities.setCapability("platformName", props.get().getProperty("platformName"));
+        capabilities.setCapability("platformVersion", props.get().getProperty("platformVersion"));
+        capabilities.setCapability("deviceName", props.get().getProperty("deviceName"));
         capabilities.setCapability("app",
-                System.getProperty("user.dir") + "/apps/ApiDemos.apk");
+                System.getProperty("user.dir") + props.get().getProperty("app"));
         driver = new AndroidDriver(new URL("http://localhost:4723/wd/hub"), capabilities);
         setDriver(driver);
 
     }
 
-    public void iOS_setUp() throws MalformedURLException {
+    public void iOS_setUp() throws IOException {
         AppiumDriver driver;
+        Properties prop = new Properties();
+        String propFileName = System.getProperty("user.dir")+"/src/main/resources/configs/iOS.properties";
+
+        utils.log().info("load " + propFileName);
+        inputStream = new FileInputStream(propFileName);
+        setProps(prop);
+        props.get().load(inputStream);
         DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability("platformName", "iOS");
-        capabilities.setCapability("platformVersion", "14.4");
-        capabilities.setCapability("deviceName", "iPhone 11 Pro");
+        capabilities.setCapability("platformName", props.get().getProperty("platformName"));
+        capabilities.setCapability("platformVersion", props.get().getProperty("platformVersion"));
+        capabilities.setCapability("deviceName", props.get().getProperty("deviceName"));
         capabilities.setCapability("app",
-                System.getProperty("user.dir") + "/apps/*.zip");
+                System.getProperty("user.dir") + props.get().getProperty("app"));
+
         driver = new IOSDriver(new URL("http://localhost:4723/wd/hub"), capabilities);
         setDriver(driver);
     }

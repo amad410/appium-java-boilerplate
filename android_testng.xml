@@ -5,10 +5,6 @@
     </listeners>
     <parameter name="platformName" value="Android" />
     <test name="Android">
-
-       <!-- <classes>
-            <class name="POM.Sample_Android_POM_Test"/>
-        </classes>-->
         <classes>
             <class name="POM.Sample_Android_POM_Test"/>
         </classes>
