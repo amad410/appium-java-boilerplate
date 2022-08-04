@@ -23,8 +23,9 @@ public class RunnerTest extends AbstractTestNGCucumberTests {
     BaseTest baseTest = new BaseTest();
 
     @BeforeSuite
-    public void setUpEnvironment() throws Exception {
-        baseTest.beforeSuite();
+    @Parameters({"platformName"})
+    public void setUpEnvironment(String platformName) throws Exception {
+        baseTest.beforeSuite(platformName);
     }
 
     @Parameters({ "platformName" })
@@ -35,7 +36,7 @@ public class RunnerTest extends AbstractTestNGCucumberTests {
 
     @AfterClass
     public static void writeExtentReport() throws IOException {
-        Reporter.loadXMLConfig(new File(ConfigFileReader.getReportConfigPath("configs/Android.properties")));
+        Reporter.loadXMLConfig(new File(ConfigFileReader.getReportConfigPath("Android.properties")));
         Reporter.setSystemInfo("User Name", System.getProperty("user.name"));
         Reporter.setSystemInfo("Time Zone", System.getProperty("user.timezone"));
     }

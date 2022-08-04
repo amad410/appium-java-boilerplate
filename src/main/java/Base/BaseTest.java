@@ -1,6 +1,7 @@
 package Base;
 
-import Utils.TestUtils;
+import Pages.BasePage;
+import Utils.*;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.InteractsWithApps;
 import io.appium.java_client.android.AndroidDriver;
@@ -35,8 +36,7 @@ public class BaseTest extends AbstractTestNGCucumberTests {
     protected static ThreadLocal <String> deviceName = new ThreadLocal<String>();
     TestUtils utils;
     InputStream inputStream;
-    //static Logger someLog = LogManager.getLogger(BaseTest.class.getName());
-
+    BasePage _basePage;
    public AppiumDriver getDriver() {
         return _driver.get();
     }
@@ -48,14 +48,10 @@ public class BaseTest extends AbstractTestNGCucumberTests {
     @Parameters({"platformName"})
     @BeforeTest
     public void beforeTest(String platformName) throws Exception {
-        //someLog.info("test this");
         setDateTime(utils.dateTime());
         setPlatform(platformName);
-        URL url;
         InputStream inputStream = null;
         InputStream stringsis = null;
-        Properties props = new Properties();
-        AppiumDriver driver;
 
         String strFile = "logs" + File.separator + platformName;
         File logFile = new File(strFile);
@@ -73,6 +69,19 @@ public class BaseTest extends AbstractTestNGCucumberTests {
             setStrings(utils.parseStringXML(stringsis));*/
             //route logs to separate file for each thread
 
+           /* switch(platformName) {
+                case "Android":
+                    propFileName = System.getProperty("user.dir")+"/src/main/resources/configs/Android.properties";
+                    break;
+                case "iOS":
+                    propFileName = System.getProperty("user.dir")+"/src/main/resources/configs/iOS.properties";
+                    break;
+                default:
+                    throw new Exception("Invalid platform! to start server - " + platformName);
+            }
+            params = new GlobalParams();
+            params.initializeGlobalParams(platformName);
+            new DriverManager().initializeDriver(params,propFileName);*/
 
             switch(platformName) {
                 case "Android":
@@ -84,6 +93,8 @@ public class BaseTest extends AbstractTestNGCucumberTests {
                 default:
                     throw new Exception("Invalid platform! - " + platformName);
             }
+           // _basePage = new BasePage(getDriver());
+
         }
         catch (Exception e) {
             utils.log().fatal("driver initialization failure. ABORT!!!\n" + e.toString());
@@ -96,8 +107,6 @@ public class BaseTest extends AbstractTestNGCucumberTests {
                 stringsis.close();
             }
         }
-
-
     }
 
 
@@ -147,11 +156,22 @@ public class BaseTest extends AbstractTestNGCucumberTests {
     }
 
     @BeforeSuite
-    public void beforeSuite() throws Exception, Exception {
+    @Parameters({"platformName"})
+    public void beforeSuite(String platformName) throws Exception, Exception {
         utils = new TestUtils();
         ThreadContext.put("ROUTINGKEY", "ServerLogs");
-        //server = getAppiumService(); // -> If using Mac, uncomment this statement and comment below statement
-        server = getAppiumServerDefault(); // -> If using Windows, uncomment this statement and comment above statement
+
+        switch(platformName) {
+            case "Android":
+                server = getAppiumServerDefault();
+                break;
+            case "iOS":
+                server = getAppiumService();
+                break;
+            default:
+                throw new Exception("Invalid platform! to start server - " + platformName);
+        }
+
         if(!checkIfAppiumServerIsRunning(4723)) {
             server.start();
             server.clearOutPutStreams(); // -> Comment this if you don't want to see server logs in the console
@@ -226,6 +246,21 @@ public class BaseTest extends AbstractTestNGCucumberTests {
     // for Mac. Update the paths as per your Mac setup
     public AppiumDriverLocalService getAppiumService() {
         HashMap<String, String> environment = new HashMap<String, String>();
+        ///TODO: Get PATH
+        environment.put("PATH", "/Library/Java/JavaVirtualMachines/jdk1.8.0_231.jdk/Contents/Home/bin:/Users/Om/Library/Android/sdk/tools:/Users/Om/Library/Android/sdk/platform-tools:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin" + System.getenv("PATH"));
+        ///TODO: Get ANDROID_HOME
+        environment.put("ANDROID_HOME", "{android home}");
+        ///TODO: Get JAVA_HOME
+        environment.put("JAVA_HOME", "/Library/Java/JavaVirtualMachines/jdk1.8.0_231.jdk/Contents/Home");
+        return AppiumDriverLocalService.buildService(new AppiumServiceBuilder()
+                .usingDriverExecutable(new File("/usr/local/bin/node"))
+                .withAppiumJS(new File("/usr/local/lib/node_modules/appium/build/lib/main.js"))
+                .usingAnyFreePort()
+                .withArgument(GeneralServerFlag.SESSION_OVERRIDE)
+                .withEnvironment(environment)
+                .withLogFile(new File("ServerLogs/server.log")));
+
+       /*HashMap<String, String> environment = new HashMap<String, String>();
         environment.put("PATH", "C:\\Program Files\\Microsoft\\jdk-11.0.12.7-hotspot\\bin;C:\\Program Files (x86)\\RSA SecurID Token Common;C:\\Program Files\\Java\\jdk-13.0.1\\bin;C:\\Program Files\\dotnet\\;C:\\Program Files\\Microsoft SQL Server\\130\\Tools\\Binn\\;C:\\Program Files\\Microsoft SQL Server\\Client SDK\\ODBC\\170\\Tools\\Binn\\;C:\\Program Files\\Docker\\Docker\\resources\\bin;C:\\ProgramData\\DockerDesktop\\version-bin;C:\\Users\\antwan.maddox\\AppData\\Local\\Android\\Sdk;C:\\Users\\antwan.maddox\\AppData\\Local\\Android\\Sdk\\platforms;C:\\Users\\antwan.maddox\\AppData\\Local\\Android\\Sdk\\platform-tools;C:\\Program Files\\apache-maven-3.6.3-bin\\apache-maven-3.6.3\\bin;C:\\Windows\\System32;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\WINDOWS\\System32\\OpenSSH\\;C:\\Program Files (x86)\\Microsoft Emulator Manager\\1.0\\;C:\\Program Files\\nodejs\\;C:\\Program Files (x86)\\scala\\bin;C:\\Program Files\\Python\\Python39;C:\\Program Files\\Python\\Python39\\Scripts;c:\\users\\antwan.maddox\\appdata\\local\\programs\\python\\python39\\Scripts;C:\\flutttersdk\\flutter\\bin;C:\\Android\\platform-tools;C:\\Program Files\\Git\\cmd;C:\\Program Files\\Microsoft SQL Server\\150\\Tools\\Binn\\;C:\\Program Files (x86)\\dotnet\\;C:\\ProgramData\\chocolatey\\bin;C:\\Program Files (x86)\\CMake\\bin;C:\\Users\\antwan.maddox\\AppData\\Local\\Programs\\Python\\Python310\\Scripts\\;C:\\Users\\antwan.maddox\\AppData\\Local\\Programs\\Python\\Python310\\;C:\\Users\\antwan.maddox\\scoop\\shims;C:\\Program Files\\MySQL\\MySQL Shell 8.0\\bin\\;C:\\Program Files\\Java\\jdk-13.0.1\\bin;C:\\Users\\antwan.maddox\\AppData\\Local\\Programs\\Microsoft VS Code\\bin;C:\\Users\\antwan.maddox\\.dotnet\\tools;C:\\Program Files\\nodejs;C:\\Windows\\System32;C:\\Program Files\\Git\\bin\\git.exe;C:\\Program Files\\Git\\cmd;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\flutter\\flutter_windows_1.20.1-stable\\flutter\\bin;C:\\Users\\antwan.maddox\\AppData\\Local\\Programs\\Fiddler;C:\\Users\\antwan.maddox\\.dotnet\\tools;C:\\Users\\antwan.maddox\\AppData\\Local\\Microsoft\\WindowsApps;C:\\Users\\antwan.maddox\\AppData\\Roaming\\npm;C:\\Users\\antwan.maddox\\AppData\\Local\\rasjani\\WebDriverManager\\chrome\\89.0.4389.23\\chromedriver_win32\\;search-ms:displayname=Search%20Results%20in%20Downloads" + System.getenv("PATH"));
         environment.put("ANDROID_HOME", "C:\\Program Files (x86)\\Android\\android-sdk\\");
 
@@ -238,7 +273,7 @@ public class BaseTest extends AbstractTestNGCucumberTests {
                 .withArgument(GeneralServerFlag.SESSION_OVERRIDE)
 //				.withArgument(() -> "--allow-insecure","chromedriver_autodownload")
                 .withEnvironment(environment)
-                .withLogFile(new File("ServerLogs/server.log")));
+                .withLogFile(new File("ServerLogs/server.log")));*/
     }
     public void closeApp() {
         ((InteractsWithApps) getDriver()).closeApp();
