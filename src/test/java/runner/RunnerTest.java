@@ -17,7 +17,8 @@ import java.io.IOException;
 @CucumberOptions(features="src/test/resources/features/"
         ,glue= {"definitions"}
         ,plugin= {"pretty","html:target/cucumber-html-report.html"}
-        /*,plugin = { "com.cucumber.listener.ExtentCucumberFormatter:target/bdd-report.html"}*/)
+        ,monochrome = true)
+        /*,plugin = { "com.cucumber.listener.ExtentCucumberFormatter:target/bdd-report.html"})*/
 public class RunnerTest extends AbstractTestNGCucumberTests {
 
     BaseTest baseTest = new BaseTest();
