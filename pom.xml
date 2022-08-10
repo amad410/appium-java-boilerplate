@@ -180,6 +180,7 @@
                         <configuration>
                             <parallel>methods</parallel>
                             <threadCount>2</threadCount>
+                            <!--<useUnlimitedThreads>true</useUnlimitedThreads>-->
                             <testFailureIgnore>true</testFailureIgnore>
                             <suiteXmlFiles>
                                 <suiteXmlFile>iOS_testng.xml</suiteXmlFile>
@@ -205,6 +206,7 @@
                         <configuration>
                             <parallel>methods</parallel>
                             <threadCount>2</threadCount>
+                            <!--<useUnlimitedThreads>true</useUnlimitedThreads>-->
                             <testFailureIgnore>true</testFailureIgnore>
                             <suiteXmlFiles>
                                 <suiteXmlFile>android_testng.xml</suiteXmlFile>
