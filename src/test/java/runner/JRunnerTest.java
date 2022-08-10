@@ -11,6 +11,7 @@ import org.apache.logging.log4j.ThreadContext;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
+import com.cucumber.listener.Reporter;
 
 import java.io.File;
 import java.io.IOException;
@@ -67,10 +68,6 @@ public class JRunnerTest {
         {
             serverManager.getServer().stop();
         }
-
-        //Reporter.loadXMLConfig(new File(ConfigFileReader.getReportConfigPath("Android.properties")));
-        //Reporter.setSystemInfo("User Name", System.getProperty("user.name"));
-        //Reporter.setSystemInfo("Time Zone", System.getProperty("user.timezone"));
     }
 
 
