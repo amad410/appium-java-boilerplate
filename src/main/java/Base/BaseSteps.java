@@ -10,7 +10,7 @@ import io.appium.java_client.service.local.AppiumDriverLocalService;
 import io.appium.java_client.service.local.AppiumServiceBuilder;
 import io.appium.java_client.service.local.flags.GeneralServerFlag;
 import org.apache.logging.log4j.ThreadContext;
-import org.junit.Before;
+//import org.junit.Before;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.*;
@@ -41,7 +41,7 @@ public class BaseSteps {
     }
 
     @Parameters({"platformName"})
-    @Before
+    @BeforeTest
     public void beforeTest(String platformName) throws Exception {
         setDateTime(utils.dateTime());
         setPlatform(platformName);

@@ -24,6 +24,7 @@ public class SampleSteps {
         System.out.println("Then");
     }
 
+
    /* @Then("I will gain a new experience")
     public void i_will_gain_a_new_experience() {
         //add POM methods here

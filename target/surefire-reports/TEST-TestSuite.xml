@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite tests="22" failures="1" name="TestSuite" time="722.184" errors="0" skipped="21">
+  <properties>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="java.vm.version" value="11.0.15.1+2-LTS-10"/>
+    <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-11.0.15.1\bin"/>
+    <property name="maven.multiModuleProjectDirectory" value="C:\Users\Antwan.Maddox\source\repos\appium-java-boilerplate"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="java.vendor.url" value="https://openjdk.java.net/"/>
+    <property name="guice.disable.misplaced.annotation.check" value="true"/>
+    <property name="path.separator" value=";"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="user.script" value=""/>
+    <property name="user.country" value="US"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="user.dir" value="C:\Users\Antwan.Maddox\source\repos\appium-java-boilerplate"/>
+    <property name="java.vm.compressedOopsMode" value="Zero based"/>
+    <property name="java.runtime.version" value="11.0.15.1+2-LTS-10"/>
+    <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.io.tmpdir" value="C:\Users\ANTWAN~1.MAD\AppData\Local\Temp\"/>
+    <property name="line.separator" value="
+"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="user.variant" value=""/>
+    <property name="os.name" value="Windows 10"/>
+    <property name="classworlds.conf" value="C:\Program Files\apache-maven-3.8.6\bin\m2.conf"/>
+    <property name="sun.jnu.encoding" value="Cp1252"/>
+    <property name="java.library.path" value="C:\Program Files\Java\jdk-11.0.15.1\bin;C:\windows\Sun\Java\bin;C:\windows\system32;C:\windows;C:\ffmpeg\bin;C:\Program Files\Microsoft\jdk-11.0.12.7-hotspot\bin;C:\windows\system32;C:\windows;C:\windows\System32\Wbem;C:\windows\System32\WindowsPowerShell\v1.0\;C:\windows\System32\OpenSSH\;C:\Program Files\nodejs\;C:\Program Files\dotnet\;C:\Users\Antwan.Maddox\AppData\Local\Android\Sdk\tools;C:\Users\Antwan.Maddox\AppData\Local\Android\Sdk\platform-tools;C:\Program Files\Git\cmd;C:\Users\Antwan.Maddox\AppData\Local\Microsoft\WindowsApps;C:\Users\Antwan.Maddox\AppData\Roaming\npm;C:\Users\Antwan.Maddox\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\Antwan.Maddox\.dotnet\tools;C:\Program Files (x86)\CMake\bin;C:\Program Files\apache-maven-3.8.6\bin;C:\Users\Antwan.Maddox\AppData\Local\Microsoft\WindowsApps;C:\Users\Antwan.Maddox\AppData\Roaming\npm;C:\Users\Antwan.Maddox\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\Antwan.Maddox\.dotnet\tools;C:\Users\Antwan.Maddox\AppData\Local\Android\Sdk\tools;C:\Users\Antwan.Maddox\AppData\Local\Android\Sdk\platform-tools;;."/>
+    <property name="maven.conf" value="C:\Program Files\apache-maven-3.8.6/conf"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="java.class.version" value="55.0"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="platformName" value="Android"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="os.version" value="10.0"/>
+    <property name="library.jansi.path" value="C:\Program Files\apache-maven-3.8.6\lib\jansi-native"/>
+    <property name="user.home" value="C:\Users\Antwan.Maddox"/>
+    <property name="user.timezone" value="America/New_York"/>
+    <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob"/>
+    <property name="file.encoding" value="Cp1252"/>
+    <property name="java.specification.version" value="11"/>
+    <property name="user.name" value="antwan.maddox"/>
+    <property name="java.class.path" value="C:\Program Files\apache-maven-3.8.6\boot\plexus-classworlds-2.6.0.jar"/>
+    <property name="java.vm.specification.version" value="11"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher verify -DplatformName=Android"/>
+    <property name="java.home" value="C:\Program Files\Java\jdk-11.0.15.1"/>
+    <property name="user.language" value="en"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
+    <property name="java.vm.info" value="mixed mode"/>
+    <property name="java.version" value="11.0.15.1"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="sun.stderr.encoding" value="cp437"/>
+    <property name="maven.home" value="C:\Program Files\apache-maven-3.8.6"/>
+    <property name="file.separator" value="\"/>
+    <property name="java.version.date" value="2022-04-22"/>
+    <property name="java.vendor.url.bug" value="https://bugreport.java.com/bugreport/"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="java.vendor.version" value="18.9"/>
+    <property name="sun.stdout.encoding" value="cp437"/>
+    <property name="sun.desktop" value="windows"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+  </properties>
+  <testcase classname="POM.Sample_Android_POM_Test" name="setUp" time="29.718">
+    <failure type="java.lang.AssertionError">java.lang.AssertionError
+	at Utils.JsonReader.parse(JsonReader.java:34)
+	at Android.Sample_Android_DeepLnkTest.setUp(Sample_Android_DeepLnkTest.java:23)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+	at org.testng.internal.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:59)
+	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:458)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:222)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:142)
+	at org.testng.TestRunner.beforeRun(TestRunner.java:529)
+	at org.testng.TestRunner.run(TestRunner.java:497)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+	at org.testng.TestNG.runSuites(TestNG.java:1049)
+	at org.testng.TestNG.run(TestNG.java:1017)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:77)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeMulti(TestNGDirectoryTestSuite.java:159)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:99)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:106)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:189)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:165)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
+</failure>
+    <system-out>Configuring TestNG with: org.apache.maven.surefire.testng.conf.TestNG652Configurator@77ec78b9
+&amp;#27;[35m[Appium]&amp;#27;[39m Welcome to Appium v1.22.3
+&amp;#27;[35m[Appium]&amp;#27;[39m Appium REST http interface listener started on 0.0.0.0:4723
+&amp;#27;[35m[HTTP]&amp;#27;[39m &amp;#27;[37m--&gt;&amp;#27;[39m &amp;#27;[37mGET&amp;#27;[39m &amp;#27;[37m/wd/hub/status&amp;#27;[39m
+&amp;#27;[35m[HTTP]&amp;#27;[39m &amp;#27;[90m{}&amp;#27;[39m
+[debug] &amp;#27;[35m[GENERIC]&amp;#27;[39m Calling AppiumDriver.getStatus() with args: []
+[debug] &amp;#27;[35m[GENERIC]&amp;#27;[39m Responding to client with driver.getStatus() result: {&quot;build&quot;:{&quot;version&quot;:&quot;1.22.3&quot;}}
+&amp;#27;[35m[HTTP]&amp;#27;[39m &amp;#27;[37m&lt;-- GET /wd/hub/status &amp;#27;[39m&amp;#27;[32m200&amp;#27;[39m &amp;#27;[90m7 ms - 68&amp;#27;[39m
+&amp;#27;[35m[HTTP]&amp;#27;[39m &amp;#27;[90m&amp;#27;[39m
+[INFO ] 2022-08-09 17:15:33.121 Base.BaseTest:178 - Appium server started
+1
+[INFO ] 2022-08-09 17:15:34.622 Base.BaseTest:180 - Appium server already running
+[INFO ] 2022-08-09 17:15:34.632 Base.BaseTest:62 - log path: logs\Android
+[INFO ] 2022-08-09 17:15:34.633 Base.BaseTest:118 - load C:\Users\Antwan.Maddox\source\repos\appium-java-boilerplate/src/main/resources/configs/Android.properties
+[INFO ] 2022-08-09 17:15:42.900 Base.BaseTest:62 - log path: logs\Android
+[INFO ] 2022-08-09 17:15:42.907 Base.BaseTest:118 - load C:\Users\Antwan.Maddox\source\repos\appium-java-boilerplate/src/main/resources/configs/Android.properties
+</system-out>
+    <system-err>SLF4J: Failed to load class &quot;org.slf4j.impl.StaticLoggerBinder&quot;.
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+Aug 09, 2022 5:15:42 PM io.appium.java_client.remote.AppiumCommandExecutor$1 lambda$0
+INFO: Detected dialect: W3C
+Aug 09, 2022 5:15:50 PM io.appium.java_client.remote.AppiumCommandExecutor$1 lambda$0
+INFO: Detected dialect: W3C
+Aug 09, 2022 5:15:58 PM io.appium.java_client.remote.AppiumCommandExecutor$1 lambda$0
+INFO: Detected dialect: W3C
+</system-err>
+  </testcase>
+  <testcase classname="POM.Sample_Android_POM_Test" name="setUp" time="29.721">
+    <skipped/>
+  </testcase>
+  <testcase classname="POM.Sample_Android_POM_Test" name="setUp" time="29.721">
+    <skipped/>
+  </testcase>
+  <testcase classname="POM.Sample_Android_POM_Test" name="setUp" time="29.721">
+    <skipped/>
+  </testcase>
+  <testcase classname="POM.Sample_Android_POM_Test" name="setUp" time="29.721">
+    <skipped/>
+  </testcase>
+  <testcase classname="Android.SampleAndroidTest" name="click_App_Button" time="29.724">
+    <skipped/>
+  </testcase>
+  <testcase classname="Android.Sample_Android_DeepLnkTest" name="navigateToProductsPage" time="29.726">
+    <skipped/>
+  </testcase>
+  <testcase classname="Android.Sample_Android_WebTest" name="userLogin" time="29.727">
+    <skipped/>
+  </testcase>
+  <testcase classname="iOS.SampleiOSTest" name="userLogin" time="29.727">
+    <skipped/>
+  </testcase>
+  <testcase classname="iOS.Sample_iOS_DeepLinkTest" name="navigateToProductsPage" time="29.729">
+    <skipped/>
+  </testcase>
+  <testcase classname="iOS.Sample_iOS_WebTest" name="userLogin" time="29.73">
+    <skipped/>
+  </testcase>
+  <testcase classname="POM.Sample_Android_POM_Test" name="sampleTest" time="29.921">
+    <skipped/>
+    <system-err>Aug 09, 2022 5:15:58 PM io.cucumber.core.runtime.FeaturePathFeatureSupplier get
+WARNING: No features found at classpath:/POM
+</system-err>
+  </testcase>
+  <testcase classname="POM.Sample_iOS_POM_Test" name="sampleTest" time="29.962">
+    <skipped/>
+    <system-err>&amp;#27;[32m&amp;#27;[1m?????????????????????????????????????????????????????????????????????????????????????&amp;#27;[0m
+&amp;#27;[32m&amp;#27;[1m?&amp;#27;[0m Share your Cucumber Report with your team at &amp;#27;[36m&amp;#27;[1m&amp;#27;[4mhttps://reports.cucumber.io&amp;#27;[0m          &amp;#27;[32m&amp;#27;[1m?&amp;#27;[0m
+&amp;#27;[32m&amp;#27;[1m?&amp;#27;[0m Activate publishing with one of the following:                                    &amp;#27;[32m&amp;#27;[1m?&amp;#27;[0m
+&amp;#27;[32m&amp;#27;[1m?&amp;#27;[0m                                                                                   &amp;#27;[32m&amp;#27;[1m?&amp;#27;[0m
+&amp;#27;[32m&amp;#27;[1m?&amp;#27;[0m src/test/resources/cucumber.properties:          &amp;#27;[36mcucumber.publish.enabled&amp;#27;[0m=&amp;#27;[36mtrue&amp;#27;[0m    &amp;#27;[32m&amp;#27;[1m?&amp;#27;[0m
+&amp;#27;[32m&amp;#27;[1m?&amp;#27;[0m src/test/resources/junit-platform.properties:    &amp;#27;[36mcucumber.publish.enabled&amp;#27;[0m=&amp;#27;[36mtrue&amp;#27;[0m    &amp;#27;[32m&amp;#27;[1m?&amp;#27;[0m
+&amp;#27;[32m&amp;#27;[1m?&amp;#27;[0m Environment variable:                            &amp;#27;[36mCUCUMBER_PUBLISH_ENABLED&amp;#27;[0m=&amp;#27;[36mtrue&amp;#27;[0m    &amp;#27;[32m&amp;#27;[1m?&amp;#27;[0m
+&amp;#27;[32m&amp;#27;[1m?&amp;#27;[0m JUnit:                                           &amp;#27;[36m@CucumberOptions&amp;#27;[0m(publish = &amp;#27;[36mtrue&amp;#27;[0m) &amp;#27;[32m&amp;#27;[1m?&amp;#27;[0m
+&amp;#27;[32m&amp;#27;[1m?&amp;#27;[0m                                                                                   &amp;#27;[32m&amp;#27;[1m?&amp;#27;[0m
+&amp;#27;[32m&amp;#27;[1m?&amp;#27;[0m More information at &amp;#27;[36mhttps://reports.cucumber.io/docs/cucumber-jvm&amp;#27;[0m                 &amp;#27;[32m&amp;#27;[1m?&amp;#27;[0m
+&amp;#27;[32m&amp;#27;[1m?&amp;#27;[0m                                                                                   &amp;#27;[32m&amp;#27;[1m?&amp;#27;[0m
+&amp;#27;[32m&amp;#27;[1m?&amp;#27;[0m Disable this message with one of the following:                                   &amp;#27;[32m&amp;#27;[1m?&amp;#27;[0m
+&amp;#27;[32m&amp;#27;[1m?&amp;#27;[0m                                                                                   &amp;#27;[32m&amp;#27;[1m?&amp;#27;[0m
+&amp;#27;[32m&amp;#27;[1m?&amp;#27;[0m src/test/resources/cucumber.properties:          &amp;#27;[36mcucumber.publish.quiet&amp;#27;[0m=&amp;#27;[36mtrue&amp;#27;[0m      &amp;#27;[32m&amp;#27;[1m?&amp;#27;[0m
+&amp;#27;[32m&amp;#27;[1m?&amp;#27;[0m src/test/resources/junit-platform.properties:    &amp;#27;[36mcucumber.publish.quiet&amp;#27;[0m=&amp;#27;[36mtrue&amp;#27;[0m      &amp;#27;[32m&amp;#27;[1m?&amp;#27;[0m
+&amp;#27;[32m&amp;#27;[1m?????????????????????????????????????????????????????????????????????????????????????&amp;#27;[0m
+Aug 09, 2022 5:15:58 PM io.cucumber.core.runtime.FeaturePathFeatureSupplier get
+WARNING: No features found at classpath:/POM
+</system-err>
+  </testcase>
+  <testcase classname="runner.Runner2Test" name="scenario" time="37.221">
+    <skipped/>
+    <system-out>[INFO ] 2022-08-09 17:15:58.875 Utils.ServerManager:22 - starting appium server
+1
+[INFO ] 2022-08-09 17:15:58.877 Utils.ServerManager:44 - Appium server already running
+[INFO ] 2022-08-09 17:15:58.880 Utils.ServerManager:47 - Appium server started
+[INFO ] 2022-08-09 17:15:58.895 Utils.DriverManager:31 - initializing Appium driver
+[INFO ] 2022-08-09 17:15:58.899 Utils.PropertyManager:20 - loading config properties
+[INFO ] 2022-08-09 17:16:05.854 Utils.DriverManager:57 - Driver is initialized
+</system-out>
+    <system-err>&amp;#27;[32m&amp;#27;[1m?????????????????????????????????????????????????????????????????????????????????????&amp;#27;[0m
+&amp;#27;[32m&amp;#27;[1m?&amp;#27;[0m Share your Cucumber Report with your team at &amp;#27;[36m&amp;#27;[1m&amp;#27;[4mhttps://reports.cucumber.io&amp;#27;[0m          &amp;#27;[32m&amp;#27;[1m?&amp;#27;[0m
+&amp;#27;[32m&amp;#27;[1m?&amp;#27;[0m Activate publishing with one of the following:                                    &amp;#27;[32m&amp;#27;[1m?&amp;#27;[0m
+&amp;#27;[32m&amp;#27;[1m?&amp;#27;[0m                                                                                   &amp;#27;[32m&amp;#27;[1m?&amp;#27;[0m
+&amp;#27;[32m&amp;#27;[1m?&amp;#27;[0m src/test/resources/cucumber.properties:          &amp;#27;[36mcucumber.publish.enabled&amp;#27;[0m=&amp;#27;[36mtrue&amp;#27;[0m    &amp;#27;[32m&amp;#27;[1m?&amp;#27;[0m
+&amp;#27;[32m&amp;#27;[1m?&amp;#27;[0m src/test/resources/junit-platform.properties:    &amp;#27;[36mcucumber.publish.enabled&amp;#27;[0m=&amp;#27;[36mtrue&amp;#27;[0m    &amp;#27;[32m&amp;#27;[1m?&amp;#27;[0m
+&amp;#27;[32m&amp;#27;[1m?&amp;#27;[0m Environment variable:                            &amp;#27;[36mCUCUMBER_PUBLISH_ENABLED&amp;#27;[0m=&amp;#27;[36mtrue&amp;#27;[0m    &amp;#27;[32m&amp;#27;[1m?&amp;#27;[0m
+&amp;#27;[32m&amp;#27;[1m?&amp;#27;[0m JUnit:                                           &amp;#27;[36m@CucumberOptions&amp;#27;[0m(publish = &amp;#27;[36mtrue&amp;#27;[0m) &amp;#27;[32m&amp;#27;[1m?&amp;#27;[0m
+&amp;#27;[32m&amp;#27;[1m?&amp;#27;[0m                                                                                   &amp;#27;[32m&amp;#27;[1m?&amp;#27;[0m
+&amp;#27;[32m&amp;#27;[1m?&amp;#27;[0m More information at &amp;#27;[36mhttps://reports.cucumber.io/docs/cucumber-jvm&amp;#27;[0m                 &amp;#27;[32m&amp;#27;[1m?&amp;#27;[0m
+&amp;#27;[32m&amp;#27;[1m?&amp;#27;[0m                                                                                   &amp;#27;[32m&amp;#27;[1m?&amp;#27;[0m
+&amp;#27;[32m&amp;#27;[1m?&amp;#27;[0m Disable this message with one of the following:                                   &amp;#27;[32m&amp;#27;[1m?&amp;#27;[0m
+&amp;#27;[32m&amp;#27;[1m?&amp;#27;[0m                                                                                   &amp;#27;[32m&amp;#27;[1m?&amp;#27;[0m
+&amp;#27;[32m&amp;#27;[1m?&amp;#27;[0m src/test/resources/cucumber.properties:          &amp;#27;[36mcucumber.publish.quiet&amp;#27;[0m=&amp;#27;[36mtrue&amp;#27;[0m      &amp;#27;[32m&amp;#27;[1m?&amp;#27;[0m
+&amp;#27;[32m&amp;#27;[1m?&amp;#27;[0m src/test/resources/junit-platform.properties:    &amp;#27;[36mcucumber.publish.quiet&amp;#27;[0m=&amp;#27;[36mtrue&amp;#27;[0m      &amp;#27;[32m&amp;#27;[1m?&amp;#27;[0m
+&amp;#27;[32m&amp;#27;[1m?????????????????????????????????????????????????????????????????????????????????????&amp;#27;[0m
+Aug 09, 2022 5:16:05 PM io.appium.java_client.remote.AppiumCommandExecutor$1 lambda$0
+INFO: Detected dialect: W3C
+</system-err>
+  </testcase>
+  <testcase classname="runner.Runner2Test" name="quit" time="37.221">
+    <skipped/>
+  </testcase>
+  <testcase classname="runner.RunnerTest" name="runScenario" time="37.232">
+    <skipped/>
+  </testcase>
+  <testcase classname="SampleTest" name="sampleTest" time="37.276">
+    <skipped/>
+    <system-err>?????????????????????????????????????????????????????????????????????????????????????
+? Share your Cucumber Report with your team at https://reports.cucumber.io          ?
+? Activate publishing with one of the following:                                    ?
+?                                                                                   ?
+? src/test/resources/cucumber.properties:          cucumber.publish.enabled=true    ?
+? src/test/resources/junit-platform.properties:    cucumber.publish.enabled=true    ?
+? Environment variable:                            CUCUMBER_PUBLISH_ENABLED=true    ?
+? JUnit:                                           @CucumberOptions(publish = true) ?
+?                                                                                   ?
+? More information at https://reports.cucumber.io/docs/cucumber-jvm                 ?
+?                                                                                   ?
+? Disable this message with one of the following:                                   ?
+?                                                                                   ?
+? src/test/resources/cucumber.properties:          cucumber.publish.quiet=true      ?
+? src/test/resources/junit-platform.properties:    cucumber.publish.quiet=true      ?
+?????????????????????????????????????????????????????????????????????????????????????
+</system-err>
+  </testcase>
+  <testcase classname="POM.Sample_Android_POM_Test" name="tearDown" time="37.277">
+    <skipped/>
+  </testcase>
+  <testcase classname="POM.Sample_Android_POM_Test" name="tearDown" time="37.277">
+    <skipped/>
+  </testcase>
+  <testcase classname="POM.Sample_Android_POM_Test" name="tearDown" time="37.277">
+    <skipped/>
+  </testcase>
+  <testcase classname="POM.Sample_Android_POM_Test" name="tearDown" time="37.277">
+    <skipped/>
+  </testcase>
+  <testcase classname="POM.Sample_Android_POM_Test" name="tearDown" time="37.278">
+    <skipped/>
+  </testcase>
+</testsuite>
