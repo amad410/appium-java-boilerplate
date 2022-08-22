@@ -22,7 +22,7 @@ import static io.cucumber.testng.CucumberOptions.SnippetType.CAMELCASE;
 @CucumberOptions(features="src/test/resources/features/Sample.feature"
         ,glue= {"definitions"}
         /*,tags = {"@foo","not@bar"}*/
-        ,plugin= {"pretty","html:target/cucumber-html-report.html"}
+        ,plugin= {"pretty","html:target/cucumber-html-report.html","json:target/cucumber.json","junit:target/cucumber.xml"}
         /* ,plugin = { "pretty","html:target/cucumber","summary"}*/
         ,dryRun = false
         ,tags = "@junit"

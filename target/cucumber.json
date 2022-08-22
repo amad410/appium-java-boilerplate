@@ -1,0 +1,106 @@
+[
+  {
+    "line": 1,
+    "elements": [
+      {
+        "start_timestamp": "2022-08-22T17:56:10.843Z",
+        "line": 2,
+        "name": "The user will gain a new experience after clicking a button",
+        "description": "",
+        "id": "sample-feature;the-user-will-gain-a-new-experience-after-clicking-a-button",
+        "after": [
+          {
+            "result": {
+              "duration": 841400,
+              "status": "passed"
+            },
+            "match": {
+              "location": "definitions.Hooks.quit(io.cucumber.java.Scenario)"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 2381100,
+              "status": "passed"
+            },
+            "line": 3,
+            "name": "Click of a button",
+            "match": {
+              "location": "definitions.SampleSteps.clickOfAButton()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 4,
+            "name": "I will gain a new experience",
+            "match": {
+              "location": "definitions.SampleSteps.iWillGainANewExperience()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2022-08-22T17:56:10.874Z",
+        "line": 7,
+        "name": "The user will be able to navigate to the app",
+        "description": "",
+        "id": "sample-feature;the-user-will-be-able-to-navigate-to-the-app",
+        "after": [
+          {
+            "result": {
+              "status": "passed"
+            },
+            "match": {
+              "location": "definitions.Hooks.quit(io.cucumber.java.Scenario)"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "I enter url address",
+            "match": {
+              "location": "definitions.SampleStepsTwo.i_enter_url_address()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 9,
+            "name": "I will access the app",
+            "match": {
+              "location": "definitions.SampleStepsTwo.i_will_access_the_app()"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@junit"
+          }
+        ]
+      }
+    ],
+    "name": "Sample Feature",
+    "description": "",
+    "id": "sample-feature",
+    "keyword": "Feature",
+    "uri": "file:src/test/resources/features/Sample.feature",
+    "tags": []
+  }
+]

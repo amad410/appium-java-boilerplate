@@ -15,7 +15,7 @@ import static io.cucumber.testng.CucumberOptions.SnippetType.CAMELCASE;
 @CucumberOptions(features="src/test/resources/features"
         ,glue= {"definitions"}
         /*,tags = {"@foo","not@bar"}*/
-         ,plugin= {"pretty","html:target/cucumber-html-report.html"}
+         ,plugin= {"pretty","html:target/cucumber-html-report.html","json:target/cucumber.json"}
        /* ,plugin = { "pretty","html:target/cucumber","summary"}*/
         ,snippets = CAMELCASE
         ,dryRun = false

@@ -14,9 +14,9 @@ import java.io.IOException;
 
 //@RunWith(Cucumber.class)
 //@CucumberOptions(features="src/test/resources/FeatureFiles",tags="@feature1scenariogroup1,@feature2cenariogroup2"
-@CucumberOptions(features="src/test/resources/features/"
+@CucumberOptions(features="src/test/resources/features"
         ,glue= {"definitions"}
-        ,plugin= {"pretty","html:target/cucumber-html-report.html"}
+        ,plugin= {"pretty","html:target/cucumber-html-report.html", "json:target/cucumber.json"}
         ,monochrome = true)
         /*,plugin = { "com.cucumber.listener.ExtentCucumberFormatter:target/bdd-report.html"})*/
 public class RunnerTest extends AbstractTestNGCucumberTests {
