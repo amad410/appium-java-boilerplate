@@ -152,6 +152,22 @@
             <artifactId>appium-test-extension</artifactId>
             <version>1.6</version>
         </dependency>
+        <dependency>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-dependency-plugin</artifactId>
+            <version>3.3.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-help-plugin</artifactId>
+            <version>3.3.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-resources-plugin</artifactId>
+            <version>3.3.0</version>
+        </dependency>
+
     </dependencies>
     <profiles>
         <profile>
@@ -248,9 +264,73 @@
                 </plugins>
             </build>
         </profile>
-
-
-
+        <profile>
+            <id>prepare-for-upload</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-dependency-plugin</artifactId>
+                        <version>3.3.0</version>
+                        <executions>
+                            <execution>
+                                <id>copy-dependencies</id>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>copy-dependencies</goal>
+                                </goals>
+                                <configuration>
+                                    <outputDirectory>${project.build.directory}/upload/dependency-jars/</outputDirectory>
+                                    <useRepositoryLayout>true</useRepositoryLayout>
+                                    <copyPom>true</copyPom>
+                                    <addParentPoms>true</addParentPoms>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-help-plugin</artifactId>
+                        <version>3.3.0</version>
+                        <executions>
+                            <execution>
+                                <id>generate-pom</id>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>effective-pom</goal>
+                                </goals>
+                                <configuration>
+                                    <output>${project.build.directory}/upload/pom.xml</output>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-resources-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>copy-testclasses</id>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>testResources</goal>
+                                </goals>
+                                <configuration>
+                                    <outputDirectory>${project.build.directory}/upload/test-classes</outputDirectory>
+                                    <resources>
+                                        <resource>
+                                            <directory>
+                                                ${project.build.testOutputDirectory}
+                                            </directory>
+                                        </resource>
+                                    </resources>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
     </profiles>
     <build>
         <plugins>
