@@ -63,26 +63,6 @@ public class BaseTest extends AbstractTestNGCucumberTests {
 
         try{
 
-            /*String xmlFileName = "strings/strings.xml";
-            utils.log().info("load " + xmlFileName);
-            stringsis = getClass().getClassLoader().getResourceAsStream(xmlFileName);
-            setStrings(utils.parseStringXML(stringsis));*/
-            //route logs to separate file for each thread
-
-           /* switch(platformName) {
-                case "Android":
-                    propFileName = System.getProperty("user.dir")+"/src/main/resources/configs/Android.properties";
-                    break;
-                case "iOS":
-                    propFileName = System.getProperty("user.dir")+"/src/main/resources/configs/iOS.properties";
-                    break;
-                default:
-                    throw new Exception("Invalid platform! to start server - " + platformName);
-            }
-            params = new GlobalParams();
-            params.initializeGlobalParams(platformName);
-            new DriverManager().initializeDriver(params,propFileName);*/
-
             switch(platformName) {
                 case "Android":
                     Android_setUp();
@@ -209,6 +189,9 @@ public class BaseTest extends AbstractTestNGCucumberTests {
     }
     public void setProps(Properties props2) {
         props.set(props2);
+    }
+    public ThreadLocal<Properties> getProps() {
+        return props;
     }
     public HashMap<String, String> getStrings() {
         return strings.get();
