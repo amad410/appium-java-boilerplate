@@ -142,6 +142,12 @@
       <scope>compile</scope>
     </dependency>
     <dependency>
+      <groupId>org.apache.maven.plugins</groupId>
+      <artifactId>maven-surefire-plugin</artifactId>
+      <version>3.0.0-M5</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
       <groupId>org.apache.maven</groupId>
       <artifactId>apache-maven</artifactId>
       <version>3.3.9</version>
@@ -249,9 +255,9 @@
               <parallel>methods</parallel>
               <threadCount>2</threadCount>
               <testFailureIgnore>true</testFailureIgnore>
-              <suiteXmlFiles>
-                <suiteXmlFile>${suiteXmlFile}</suiteXmlFile>
-              </suiteXmlFiles>
+              <includes>
+                <include>WeatherAppTest.java</include>
+              </includes>
             </configuration>
           </execution>
         </executions>
@@ -259,9 +265,9 @@
           <parallel>methods</parallel>
           <threadCount>2</threadCount>
           <testFailureIgnore>true</testFailureIgnore>
-          <suiteXmlFiles>
-            <suiteXmlFile>${suiteXmlFile}</suiteXmlFile>
-          </suiteXmlFiles>
+          <includes>
+            <include>WeatherAppTest.java</include>
+          </includes>
         </configuration>
       </plugin>
       <plugin>

@@ -1,9 +1,11 @@
 package Android;
 
 import Base.BaseTest;
+import Utils.WaitUtils;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
+import org.eclipse.sisu.inject.Soft;
 import org.junit.*;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import java.io.FileInputStream;
@@ -14,6 +16,7 @@ import com.microsoft.appcenter.appium.Factory;
 import com.microsoft.appcenter.appium.EnhancedAndroidDriver;
 import org.junit.rules.TestWatcher;
 import org.junit.Rule;
+import org.testng.asserts.SoftAssert;
 
 public class WeatherAppTest {
 
@@ -21,6 +24,7 @@ public class WeatherAppTest {
    // protected static ThreadLocal<AppiumDriver> _driver = new ThreadLocal<AppiumDriver>();
     InputStream inputStream;
     private static EnhancedAndroidDriver<MobileElement> _edriver;
+    private static SoftAssert _testAssert;
 
     @Rule
     public TestWatcher watcher = Factory.createWatcher();
@@ -28,6 +32,7 @@ public class WeatherAppTest {
     @BeforeClass
     public static void SetupState() throws Exception {
         base.beforeSuite("Android");
+        _testAssert = new SoftAssert();
 
     }
 
@@ -50,81 +55,68 @@ public class WeatherAppTest {
                 System.getProperty("user.dir") +  base.getProps().get().getProperty("app"));
 
         _edriver = Factory.createAndroidDriver(new URL("http://localhost:4723/wd/hub"), capabilities);
-        //_edriver = Factory.createAndroidDriver(new URL("https://appcenter.ms/users/john-dixon-15t9/apps/AndroidWeather/distribute/releases/2"), capabilities);
-        //driver = new AndroidDriver(new URL("http://localhost:4723/wd/hub"), capabilities);
-        //setDriver(driver);
 
     }
     @Test
     public void verifyMainView(){
 
         String titleBarText = _edriver.findElementByXPath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[1]/android.view.ViewGroup/android.widget.TextView").getText();
-
-
-        Assert.assertTrue(titleBarText.equals("Weather App MVVM Dagger"));
-
-
+        _testAssert.assertTrue(titleBarText.equals("Weather App MVVM Dagger"));
     }
     @Test
-    public void Verify_London_Weather(){
+    public void Verify_London_Weather() throws InterruptedException {
 
         _edriver.findElementById("com.weatherapp:id/spinner").click();
         _edriver.findElementByXPath("/hierarchy/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.ListView/android.widget.TextView[1]").click();
         _edriver.findElementById("com.weatherapp:id/btn_view_weather").click();
+
+        Thread.sleep(5000);
+
+        _testAssert.assertTrue(_edriver.findElementById("com.weatherapp:id/tv_temperature").isDisplayed(),"Temperature not displayed");
+        _testAssert.assertTrue(_edriver.findElementById("com.weatherapp:id/tv_weather_condition").isDisplayed(), "Weather condition not displayed");
+        _testAssert.assertTrue(_edriver.findElementById("com.weatherapp:id/tv_humidity_value").isDisplayed(), "Humidity condition not displayed");
+        _testAssert.assertTrue(_edriver.findElementById("com.weatherapp:id/tv_pressure_value").isDisplayed(),"Pressure not displayed");
+        _testAssert.assertTrue(_edriver.findElementById("com.weatherapp:id/tv_visibility_value").isDisplayed(),"Visibility not displayed");
+        _testAssert.assertTrue(_edriver.findElementById("com.weatherapp:id/tv_sunrise_time").isDisplayed(),"Time to sunrise not displayed");
+        _testAssert.assertTrue(_edriver.findElementById("com.weatherapp:id/tv_sunset_time").isDisplayed(),"Time to sunset not displayed");
+       _testAssert.assertAll();
+
     }
     @Test
-    public void Verify_Riyadh_Weather(){
+    public void Verify_Riyadh_Weather() throws InterruptedException {
 
         _edriver.findElementById("com.weatherapp:id/spinner").click();
         _edriver.findElementByXPath("/hierarchy/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.ListView/android.widget.TextView[2]").click();
         _edriver.findElementById("com.weatherapp:id/btn_view_weather").click();
+        Thread.sleep(5000);
 
-
+        _testAssert.assertTrue(_edriver.findElementById("com.weatherapp:id/tv_temperature").isDisplayed(),"Temperature not displayed");
+        _testAssert.assertTrue(_edriver.findElementById("com.weatherapp:id/tv_weather_condition").isDisplayed(), "Weather condition not displayed");
+        _testAssert.assertTrue(_edriver.findElementById("com.weatherapp:id/tv_humidity_value").isDisplayed(), "Humidity condition not displayed");
+        _testAssert.assertTrue(_edriver.findElementById("com.weatherapp:id/tv_pressure_value").isDisplayed(),"Pressure not displayed");
+        _testAssert.assertTrue(_edriver.findElementById("com.weatherapp:id/tv_visibility_value").isDisplayed(),"Visibility not displayed");
+        _testAssert.assertTrue(_edriver.findElementById("com.weatherapp:id/tv_sunrise_time").isDisplayed(),"Time to sunrise not displayed");
+        _testAssert.assertTrue(_edriver.findElementById("com.weatherapp:id/tv_sunset_time").isDisplayed(),"Time to sunset not displayed");
+        _testAssert.assertAll();
 
     }
-    //@Test
-    public void Verify_AbuDhabi_Weather(){
-
-        _edriver.findElementById("com.weatherapp:id/btn_view_weather").click();
+    @Test
+    public void Verify_AbuDhabi_Weather() throws InterruptedException {
 
         _edriver.findElementById("com.weatherapp:id/spinner").click();
-        _edriver.findElementByXPath("/hierarchy/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.ListView/android.widget.TextView[1]").click();
-        // driver.findElementById("com.weatherapp:id/btn_view_weather").click();
-
-        _edriver.findElementById("com.weatherapp:id/spinner").click();
-
-        _edriver.findElementByXPath("/hierarchy/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.ListView/android.widget.TextView[2]").click();
-        //driver.findElementById("com.weatherapp:id/btn_view_weather").click();
-
-        _edriver.findElementById("com.weatherapp:id/spinner").click();
-
         _edriver.findElementByXPath("/hierarchy/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.ListView/android.widget.TextView[3]").click();
-        //driver.findElementById("com.weatherapp:id/btn_view_weather").click();
+        _edriver.findElementById("com.weatherapp:id/btn_view_weather").click();
+        Thread.sleep(5000);
 
-        _edriver.findElementById("com.weatherapp:id/spinner").click();
+        _testAssert.assertTrue(_edriver.findElementById("com.weatherapp:id/tv_temperature").isDisplayed(),"Temperature not displayed");
+        _testAssert.assertTrue(_edriver.findElementById("com.weatherapp:id/tv_weather_condition").isDisplayed(), "Weather condition not displayed");
+        _testAssert.assertTrue(_edriver.findElementById("com.weatherapp:id/tv_humidity_value").isDisplayed(), "Humidity condition not displayed");
+        _testAssert.assertTrue(_edriver.findElementById("com.weatherapp:id/tv_pressure_value").isDisplayed(),"Pressure not displayed");
+        _testAssert.assertTrue(_edriver.findElementById("com.weatherapp:id/tv_visibility_value").isDisplayed(),"Visibility not displayed");
+        _testAssert.assertTrue(_edriver.findElementById("com.weatherapp:id/tv_sunrise_time").isDisplayed(),"Time to sunrise not displayed");
+        _testAssert.assertTrue(_edriver.findElementById("com.weatherapp:id/tv_sunset_time").isDisplayed(),"Time to sunset not displayed");
 
-        _edriver.findElementByXPath("/hierarchy/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.ListView/android.widget.TextView[4]").click();
-        // driver.findElementById("com.weatherapp:id/btn_view_weather").click();
-
-        _edriver.findElementById("com.weatherapp:id/spinner").click();
-
-        _edriver.findElementByXPath("/hierarchy/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.ListView/android.widget.TextView[5]").click();
-        //driver.findElementById("com.weatherapp:id/btn_view_weather").click();
-
-        _edriver.findElementById("com.weatherapp:id/spinner").click();
-
-        _edriver.findElementByXPath("/hierarchy/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.ListView/android.widget.TextView[6]").click();
-        //driver.findElementById("com.weatherapp:id/btn_view_weather").click();
-
-        _edriver.findElementById("com.weatherapp:id/spinner").click();
-
-        _edriver.findElementByXPath("/hierarchy/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.ListView/android.widget.TextView[7]").click();
-        // driver.findElementById("com.weatherapp:id/btn_view_weather").click();
-
-        _edriver.findElementById("com.weatherapp:id/spinner").click();
-
-        _edriver.findElementByXPath("/hierarchy/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.ListView/android.widget.TextView[8]").click();
-        // driver.findElementById("com.weatherapp:id/btn_view_weather").click();
+        _testAssert.assertAll();
 
     }
 
