@@ -4,12 +4,15 @@ import io.appium.java_client.service.local.AppiumDriverLocalService;
 import io.appium.java_client.service.local.AppiumServerHasNotBeenStartedLocallyException;
 import io.appium.java_client.service.local.AppiumServiceBuilder;
 import io.appium.java_client.service.local.flags.GeneralServerFlag;
-
 import java.io.File;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.util.HashMap;
 
+/**
+ * Server Manager class which programatically starts
+ * the Appium Server with configurations based on platform (i.e., Mac or Windows)
+ */
 public class ServerManager {
 
     private static ThreadLocal<AppiumDriverLocalService> _server = new ThreadLocal<>();
@@ -58,10 +61,15 @@ public class ServerManager {
         return AppiumDriverLocalService.buildDefaultService();
     }
 
+    /**
+     * Start Appium Server on Windows. You will need to provide additional
+     * configurations being requested.
+     * @return
+     */
+
     public AppiumDriverLocalService WindowsGetAppiumService() {
         GlobalParams params = new GlobalParams();
         return AppiumDriverLocalService.buildDefaultService();
-
         /*return AppiumDriverLocalService.buildService(new AppiumServiceBuilder()
                 .usingAnyFreePort()
                 .withArgument(GeneralServerFlag.SESSION_OVERRIDE)
@@ -69,6 +77,11 @@ public class ServerManager {
                         + File.separator + "Server.log")));*/
     }
 
+    /**
+     * Start Appium Server on Mac. You will need to provide additional
+     * configurations being requested.
+     * @return
+     */
     public AppiumDriverLocalService MACGetAppiumService() {
         GlobalParams params = new GlobalParams();
         HashMap<String, String> environment = new HashMap<String, String>();

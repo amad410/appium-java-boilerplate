@@ -4,6 +4,6 @@ Feature: Sample Feature
     Then I will gain a new experience
 
     @junit
-    Scenario:  The user will be able to navigate to the app
-      Given I enter url address
-      Then I will access the app
+    Scenario:  The user will be able to open a tab
+      Given I click on a tab
+      Then the tab will open

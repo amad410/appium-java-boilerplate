@@ -18,6 +18,7 @@ import static io.cucumber.testng.CucumberOptions.SnippetType.CAMELCASE;
          ,plugin= {"pretty","html:target/cucumber-html-report.html","json:target/cucumber.json"}
        /* ,plugin = { "pretty","html:target/cucumber","summary"}*/
         ,snippets = CAMELCASE
+        ,strict = true
         ,dryRun = false
         ,monochrome = true)
 public class Runner2Test extends RunnerBase{

@@ -5,6 +5,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
+/**
+ * Property Manager class for the loading of configuration properties.
+ */
 public class PropertyManager {
 
     private static Properties props = new Properties();

@@ -1,33 +1,23 @@
 package runner;
 
-
 import Utils.*;
-import com.cucumber.listener.Reporter;
-
-
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
 import org.apache.logging.log4j.ThreadContext;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
-import com.cucumber.listener.Reporter;
-
-import java.io.File;
 import java.io.IOException;
-
-import static io.cucumber.testng.CucumberOptions.SnippetType.CAMELCASE;
-
 @RunWith(Cucumber.class)
 @CucumberOptions(features="src/test/resources/features/Sample.feature"
         ,glue= {"definitions"}
-        /*,tags = {"@foo","not@bar"}*/
         ,plugin= {"pretty","html:target/cucumber-html-report.html","json:target/cucumber.json","junit:target/cucumber.xml"}
-        /* ,plugin = { "pretty","html:target/cucumber","summary"}*/
-        ,dryRun = false
+        ,snippets = CucumberOptions.SnippetType.CAMELCASE
+        ,dryRun = false,
+        strict = true
         ,tags = "@junit"
         ,monochrome = true)
-public class JRunnerTest {
+public class JUnitRunnerTest {
     private static String propFileName;
     private static ServerManager _serverManager;
 
@@ -38,7 +28,6 @@ public class JRunnerTest {
         GlobalParams params = new GlobalParams();
         params.initializeGlobalParams(System.getProperty("platformName"));
         _serverManager = new ServerManager();
-
         _serverManager.startServer(System.getProperty("platformName"));
 
         PropertyManager props = new PropertyManager();
@@ -69,6 +58,7 @@ public class JRunnerTest {
             serverManager.getServer().stop();
         }
     }
+
 
 
 

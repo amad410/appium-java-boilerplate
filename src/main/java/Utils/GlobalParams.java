@@ -1,5 +1,9 @@
 package Utils;
 
+/**
+ * This is the GlobalParams class to set all the global
+ * parameters for the system values.
+ */
 public class GlobalParams {
     private static ThreadLocal<String> platformName = new ThreadLocal<String>();
     private static ThreadLocal<String> systemPort = new ThreadLocal<String>();
@@ -47,21 +51,35 @@ public class GlobalParams {
         webkitDebugProxyPort.set(webkitDebugProxyPort2);
     }
 
-    public void initializeGlobalParams(String platformName){
-        GlobalParams params = new GlobalParams();
-        switch(platformName){
-            case "Android":
-                params.setPlatformName(System.getProperty("platformName", "Android"));
-                params.setSystemPort(System.getProperty("systemPort", "10000"));
-                params.setChromeDriverPort(System.getProperty("chromeDriverPort", "11000"));
-                break;
-            case "iOS":
-                params.setPlatformName(System.getProperty("platformName", "iOS"));
-                params.setWdaLocalPort(System.getProperty("wdaLocalPort", "10001"));
-                params.setWebkitDebugProxyPort(System.getProperty("webkitDebugProxyPort", "11001"));
-                break;
-            default:
-                throw new IllegalStateException("Invalid Platform Name!");
+    /**
+     * This will initialize the global parameters. You can either set these values using
+     * System.getProperty during runtime execution using commandline or testNG and then set
+     * them using the methods outlined above or have static default values.
+     * @param platformName
+     * @throws Exception
+     */
+
+    public void initializeGlobalParams(String platformName) throws Exception {
+        try{
+            GlobalParams params = new GlobalParams();
+
+            switch(platformName){
+                case "Android":
+                    params.setPlatformName(System.getProperty("platformName", "Android"));
+                    params.setSystemPort(System.getProperty("systemPort", "10000"));
+                    params.setChromeDriverPort(System.getProperty("chromeDriverPort", "11000"));
+                    break;
+                case "iOS":
+                    params.setPlatformName(System.getProperty("platformName", platformName));
+                    params.setWdaLocalPort(System.getProperty("wdaLocalPort", "10001"));
+                    params.setWebkitDebugProxyPort(System.getProperty("webkitDebugProxyPort", "11001"));
+                    break;
+                default:
+                    throw new IllegalStateException("Invalid Platform Name!");
+            }
+        }
+        catch(Exception ex){
+            throw new Exception(String.format("Exception occured: %s",ex.getMessage()));
         }
     }
 }
