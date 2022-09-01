@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite thread-count="2" junit="true" parallel="methods" name="Failed suite [Surefire suite]" verbose="0">
-  <test junit="true" thread-count="2" parallel="methods" name="Surefire test(failed)" verbose="0">
+<suite thread-count="2" verbose="0" name="Failed suite [Surefire suite]" junit="true" parallel="methods">
+  <test thread-count="2" verbose="0" name="Surefire test(failed)" junit="true" parallel="methods">
     <classes>
       <class name="org.junit.runner.Description">
         <methods>

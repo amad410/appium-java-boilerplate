@@ -13,7 +13,8 @@ public class Sample_Android_POM_Test extends BaseTest {
     @Test
     public void sampleTest() throws MalformedURLException {
         //add test code here
-        mainPage = new MainPage(getDriver());
-        mainPage.clickBtn();
+        mainPage = new MainPage();
+        mainPage.clickTab();
+        mainPage.closeApp();
     }
 }

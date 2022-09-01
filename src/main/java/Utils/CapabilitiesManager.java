@@ -26,6 +26,7 @@ public class CapabilitiesManager {
 
             switch(props.getProperty("platformName")){
                 case "Android":
+                    caps.setCapability("platformName", props.getProperty("platformName"));
                     caps.setCapability("platformVersion", props.getProperty("platformVersion"));
                     caps.setCapability("deviceName", props.getProperty("deviceName"));
                    //caps.setCapability("systemPort", params.getSystemPort());
@@ -40,6 +41,7 @@ public class CapabilitiesManager {
                     utils.log().info("app is located " + props.getProperty("app"));
                     break;
                 case "iOS":
+                    caps.setCapability("platformName", props.getProperty("platformName"));
                     caps.setCapability("platformVersion", props.getProperty("platformVersion"));
                     caps.setCapability("deviceName", props.getProperty("deviceName"));
                     caps.setCapability("wdaLocalPort", params.getWdaLocalPort());

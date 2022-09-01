@@ -5,6 +5,7 @@
       "platformName": "iOS",
       "platformVersion": "11.0",
       "deviceName": "iPhone 7",
+      "iOSBundleId": "null",
       "automationName": "XCUITest",
       "app": "/path/to/my.app"
     }
@@ -15,6 +16,7 @@
       "platformName": "iOS",
       "platformVersion": "11.0",
       "deviceName": "iPhone 7",
+      "iOSBundleId": "null",
       "automationName": "XCUITest",
       "app": "/path/to/my.app"
     }

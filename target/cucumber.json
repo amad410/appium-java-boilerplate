@@ -1,0 +1,64 @@
+[
+  {
+    "line": 1,
+    "elements": [
+      {
+        "start_timestamp": "2022-08-30T20:34:59.667Z",
+        "line": 7,
+        "name": "The user will be able to open a tab",
+        "description": "",
+        "id": "sample-feature;the-user-will-be-able-to-open-a-tab",
+        "after": [
+          {
+            "result": {
+              "duration": 1845693500,
+              "status": "passed"
+            },
+            "match": {
+              "location": "definitions.Hooks.quit(io.cucumber.java.Scenario)"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 5970500,
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "I click on a tab",
+            "match": {
+              "location": "definitions.SampleStepsTwo.iClickOnATab()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 993100,
+              "status": "passed"
+            },
+            "line": 9,
+            "name": "the tab will open",
+            "match": {
+              "location": "definitions.SampleStepsTwo.theTabWillOpen()"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@junit"
+          }
+        ]
+      }
+    ],
+    "name": "Sample Feature",
+    "description": "",
+    "id": "sample-feature",
+    "keyword": "Feature",
+    "uri": "file:src/test/resources/features/Sample.feature",
+    "tags": []
+  }
+]

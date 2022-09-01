@@ -14,6 +14,7 @@
     "platformName": "iOS",
     "platformVersion": "11.0",
     "udid": "63E2D54C-CA63-4ECA-89C2-61F2F41EE2F7",
+    "iOSBundleId": "null",
     "automationName": "XCUITest",
     "app": "/apps/SwagLabsMobileApp.app"
   }

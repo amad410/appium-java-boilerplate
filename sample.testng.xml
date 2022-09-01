@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="Suite" parallel="tests">
+    <listeners>
+        <listener class-name="Listeners.TestListener" />
+    </listeners>
+    <parameter name="platformName" value="Android" />
+    <test name="Android">
+        <classes>
+            <class name="POM.Sample_Android_POM_Test"/>
+        </classes>
+
+    </test>
+</suite>

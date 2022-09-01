@@ -15,7 +15,6 @@ iOS\Sample_iOS_BrowserStack.class
 Android\Sample_Android_Physical_Device.class
 iOS\Sample_iOS_Physical_Device.class
 iOS\Sample_iOS_WebTest.class
-runner\JRunnerTest.class
 POM\Sample_iOS_POM_Test.class
 Android\Sample_Android_WeatherAppDemo.class
 iOS\SampleiOSTest.class

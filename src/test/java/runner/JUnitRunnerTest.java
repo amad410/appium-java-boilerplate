@@ -41,7 +41,7 @@ public class JUnitRunnerTest {
             default:
                 throw new Exception("Invalid platform! to start server - " + System.getProperty("platformName"));
         }
-        new DriverManager().initializeDriver(params,propFileName);
+        new DriverManager().initializeDriver( params,propFileName);
 
     }
     @AfterClass
@@ -50,7 +50,6 @@ public class JUnitRunnerTest {
         if(driverManager.getDriver() != null){
             driverManager.getDriver().quit();
             driverManager.setDriver(null);
-
         }
         ServerManager serverManager = new ServerManager();
         if(serverManager.getServer() != null)
@@ -58,8 +57,4 @@ public class JUnitRunnerTest {
             serverManager.getServer().stop();
         }
     }
-
-
-
-
 }

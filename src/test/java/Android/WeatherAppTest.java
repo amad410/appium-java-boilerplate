@@ -1,8 +1,10 @@
 package Android;
 
 import Base.BaseTest;
+import Pages.MainPage;
 import Utils.WaitUtils;
 import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.InteractsWithApps;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 import org.eclipse.sisu.inject.Soft;
@@ -17,6 +19,7 @@ import com.microsoft.appcenter.appium.EnhancedAndroidDriver;
 import org.junit.rules.TestWatcher;
 import org.junit.Rule;
 import org.testng.asserts.SoftAssert;
+import org.testng.reporters.jq.Main;
 
 public class WeatherAppTest {
 
@@ -25,6 +28,7 @@ public class WeatherAppTest {
     InputStream inputStream;
     private static EnhancedAndroidDriver<MobileElement> _edriver;
     private static SoftAssert _testAssert;
+    MainPage mainPage;
 
     @Rule
     public TestWatcher watcher = Factory.createWatcher();
@@ -129,6 +133,7 @@ public class WeatherAppTest {
     public void TearDownDriver(){
         if(_edriver != null){
             _edriver.label("Stopping App");
+            ((InteractsWithApps)_edriver).closeApp();
             _edriver.quit();
         }
     }

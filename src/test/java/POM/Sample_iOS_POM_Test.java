@@ -15,7 +15,7 @@ public class Sample_iOS_POM_Test extends BaseTest {
     @Test
     public void sampleTest() throws MalformedURLException {
         //add test code here
-        mainPage = new MainPage(getDriver());
+        mainPage = new MainPage();
         mainPage.clickBtn();
 
     }

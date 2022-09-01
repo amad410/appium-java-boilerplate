@@ -28,12 +28,14 @@ import java.util.Properties;
 public class BaseTest extends AbstractTestNGCucumberTests {
 
     protected static ThreadLocal<AppiumDriver> _driver = new ThreadLocal<AppiumDriver>();
-    private static AppiumDriverLocalService server;
+    private static AppiumDriverLocalService _server;
     protected static ThreadLocal <Properties> props = new ThreadLocal<Properties>();
     protected static ThreadLocal <HashMap<String, String>> strings = new ThreadLocal<HashMap<String, String>>();
     protected static ThreadLocal <String> platform = new ThreadLocal<String>();
     protected static ThreadLocal <String> dateTime = new ThreadLocal<String>();
     protected static ThreadLocal <String> deviceName = new ThreadLocal<String>();
+    private static ServerManager _serverManager;
+    private DriverManager _driverManager;
     TestUtils utils;
     InputStream inputStream;
     BasePage _basePage;
@@ -45,6 +47,12 @@ public class BaseTest extends AbstractTestNGCucumberTests {
         _driver.set(driver);
     }
 
+    public void setServer(ServerManager server) {
+        this._server = server.getServer();
+    }
+    public AppiumDriverLocalService getServer() {
+        return this._server;
+    }
     @Parameters({"platformName"})
     @BeforeTest
     public void beforeTest(String platformName) throws Exception {
@@ -73,8 +81,6 @@ public class BaseTest extends AbstractTestNGCucumberTests {
                 default:
                     throw new Exception("Invalid platform! - " + platformName);
             }
-           // _basePage = new BasePage(getDriver());
-
         }
         catch (Exception e) {
             utils.log().fatal("driver initialization failure. ABORT!!!\n" + e.toString());
@@ -90,7 +96,7 @@ public class BaseTest extends AbstractTestNGCucumberTests {
     }
 
 
-    public void Android_setUp() throws IOException {
+    public void Android_setUp() throws Exception {
         AppiumDriver driver;
         Properties prop = new Properties();
         String propFileName = System.getProperty("user.dir")+"/src/main/resources/configs/Android.properties";
@@ -100,15 +106,12 @@ public class BaseTest extends AbstractTestNGCucumberTests {
         setProps(prop);
         props.get().load(inputStream);
 
-        DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability("platformName", props.get().getProperty("platformName"));
-        capabilities.setCapability("platformVersion", props.get().getProperty("platformVersion"));
-        capabilities.setCapability("deviceName", props.get().getProperty("deviceName"));
-        capabilities.setCapability("app",
-                System.getProperty("user.dir") + props.get().getProperty("app"));
-        driver = new AndroidDriver(new URL("http://localhost:4723/wd/hub"), capabilities);
-        setDriver(driver);
+        GlobalParams params = new GlobalParams();
+        params.initializeGlobalParams(props.get().getProperty("platformName"));
+        _driverManager =  new DriverManager();
+        _driverManager.initializeDriver( params,propFileName);
 
+        setDriver(_driverManager.getDriver());
     }
 
     public void iOS_setUp() throws IOException {
@@ -140,47 +143,16 @@ public class BaseTest extends AbstractTestNGCucumberTests {
     public void beforeSuite(String platformName) throws Exception, Exception {
         utils = new TestUtils();
         ThreadContext.put("ROUTINGKEY", "ServerLogs");
-
-        switch(platformName) {
-            case "Android":
-                server = getAppiumServerDefault();
-                break;
-            case "iOS":
-                server = getAppiumService();
-                break;
-            default:
-                throw new Exception("Invalid platform! to start server - " + platformName);
-        }
-
-        if(!checkIfAppiumServerIsRunning(4723)) {
-            server.start();
-            server.clearOutPutStreams(); // -> Comment this if you don't want to see server logs in the console
-           utils.log().info("Appium server started");
-        } else {
-            utils.log().info("Appium server already running");
-        }
-    }
-
-    public boolean checkIfAppiumServerIsRunning(int port) throws Exception {
-        boolean isAppiumServerRunning = false;
-        ServerSocket socket;
-        try {
-            socket = new ServerSocket(port);
-            socket.close();
-        } catch (IOException e) {
-            System.out.println("1");
-            isAppiumServerRunning = true;
-        } finally {
-            socket = null;
-        }
-        return isAppiumServerRunning;
+        _serverManager = new ServerManager();
+        _serverManager.startServer(platformName);
+        setServer(_serverManager);
     }
 
     @AfterSuite(alwaysRun = true)
     public void afterSuite() {
-        if(server.isRunning()){
-            server.stop();
-           utils.log().info("Appium server stopped");
+        if(getServer().isRunning()){
+            getServer().stop();
+            utils.log().info("Appium server stopped");
         }
     }
 

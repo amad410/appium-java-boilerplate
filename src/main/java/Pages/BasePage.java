@@ -36,12 +36,12 @@ public class BasePage {
     public AndroidTouchAction actions;
     TestUtils utils = new TestUtils();
 
-    public BasePage(AppiumDriver driver){
+    /*public BasePage(AppiumDriver driver){
         this._driver = driver;
         PageFactory.initElements(new AppiumFieldDecorator(this._driver),this);
 
-    }
-      public BasePage(){
+    }*/
+    public BasePage(){
         this._driver = new DriverManager().getDriver();
         PageFactory.initElements(new AppiumFieldDecorator(this._driver),this);
 
@@ -180,6 +180,11 @@ public class BasePage {
     public void waitForVisibility(By e, long timeOut){
         WebDriverWait wait = new WebDriverWait(_driver,timeOut);
         wait.until(ExpectedConditions.visibilityOfElementLocated(e));
+        WaitUtils.waitForVisibility(e,_driver,timeOut);
+    }
+    public void waitForWebDriverVisibility(By e,long timeOut){
+        WebDriverWait wait = new WebDriverWait(_driver,timeOut);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(e));
     }
 
     public MobileElement iOSScrollTOElementUsingMobileScroll(MobileElement e){
@@ -278,10 +283,10 @@ public class BasePage {
             return false;
         }
     }
-    public void closeApp(){
+    public void closeApplication(){
         ((InteractsWithApps)_driver).closeApp();
     }
-    public void launchApp(){
+    public void launchApplication(){
         ((InteractsWithApps)_driver).launchApp();
     }
 
