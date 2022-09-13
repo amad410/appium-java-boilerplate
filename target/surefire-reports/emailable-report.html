@@ -9,17 +9,44 @@
 <table>
 <tr><th>Test</th><th># Passed</th><th># Skipped</th><th># Failed</th><th>Time (ms)</th><th>Included Groups</th><th>Excluded Groups</th></tr>
 <tr><th colspan="7">Surefire suite</th></tr>
-<tr><td><a href="#t0">Surefire test</a></td><td class="num">3</td><td class="num">0</td><td class="num attn">1</td><td class="num">49,868</td><td></td><td></td></tr>
+<tr><td><a href="#t0">Surefire test</a></td><td class="num">3</td><td class="num">0</td><td class="num attn">2</td><td class="num">57,472</td><td></td><td></td></tr>
 </table>
-<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Surefire suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Surefire test &#8212; failed</th></tr><tr class="failedeven"><td rowspan="1">Android.WeatherAppTest</td><td><a href="#m0">Verify_AbuDhabi_Weather</a></td><td rowspan="1">1662056525575</td><td rowspan="1">30102</td></tr><tr><th colspan="4">Surefire test &#8212; passed</th></tr><tr class="passedeven"><td rowspan="3">Android.WeatherAppTest</td><td><a href="#m1">Verify_London_Weather</a></td><td rowspan="1">1662056525575</td><td rowspan="1">17221</td></tr><tr class="passedeven"><td><a href="#m2">Verify_Riyadh_Weather</a></td><td rowspan="1">1662056525575</td><td rowspan="1">43227</td></tr><tr class="passedeven"><td><a href="#m3">verifyMainView</a></td><td rowspan="1">1662056525576</td><td rowspan="1">49762</td></tr></tbody>
+<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Surefire suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Surefire test &#8212; failed</th></tr><tr class="failedeven"><td rowspan="2">Android.WeatherAppTest</td><td><a href="#m0">QuickTest</a></td><td rowspan="1">1662063919900</td><td rowspan="1">36897</td></tr><tr class="failedeven"><td><a href="#m1">Verify_AbuDhabi_Weather</a></td><td rowspan="1">1662063919900</td><td rowspan="1">31471</td></tr><tr><th colspan="4">Surefire test &#8212; passed</th></tr><tr class="passedeven"><td rowspan="3">Android.WeatherAppTest</td><td><a href="#m2">Verify_London_Weather</a></td><td rowspan="1">1662063919899</td><td rowspan="1">18322</td></tr><tr class="passedeven"><td><a href="#m3">Verify_Riyadh_Weather</a></td><td rowspan="1">1662063919900</td><td rowspan="1">50427</td></tr><tr class="passedeven"><td><a href="#m4">verifyMainView</a></td><td rowspan="1">1662063919900</td><td rowspan="1">57366</td></tr></tbody>
 </table>
-<h2>Surefire test</h2><h3 id="m0">Android.WeatherAppTest#Verify_AbuDhabi_Weather</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">org.openqa.selenium.NoSuchElementException: An element could not be located on the page using the given search parameters.
+<h2>Surefire test</h2><h3 id="m0">Android.WeatherAppTest#QuickTest</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.AssertionError
+	at org.junit.Assert.fail(Assert.java:86)
+	at org.junit.Assert.assertTrue(Assert.java:41)
+	at org.junit.Assert.assertTrue(Assert.java:52)
+	at Android.WeatherAppTest.QuickTest(WeatherAppTest.java:71)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
+	at org.junit.rules.TestWatcher$1.evaluate(TestWatcher.java:55)
+	at org.junit.rules.RunRules.evaluate(RunRules.java:20)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:271)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:70)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:50)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:238)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:63)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:236)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:53)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:229)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:309)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:160)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:138)
+... Removed 28 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m1">Android.WeatherAppTest#Verify_AbuDhabi_Weather</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">org.openqa.selenium.NoSuchElementException: An element could not be located on the page using the given search parameters.
 For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
 Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
 System info: host: &apos;USTPALG1757&apos;, ip: &apos;192.168.254.181&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_341&apos;
 Driver info: com.microsoft.appcenter.appium.EnhancedAndroidDriver
 Capabilities {app: C:\Users\Antwan.Maddox\sour..., appPackage: com.weatherapp, databaseEnabled: false, desired: {app: C:\Users\Antwan.Maddox\sour..., deviceName: Android Emulator, platformName: android, platformVersion: 11.0}, deviceApiLevel: 30, deviceManufacturer: Google, deviceModel: sdk_gphone_x86, deviceName: emulator-5554, deviceScreenDensity: 420, deviceScreenSize: 1080x1920, deviceUDID: emulator-5554, javascriptEnabled: true, locationContextEnabled: false, networkConnectionEnabled: true, pixelRatio: 2.625, platform: LINUX, platformName: Android, platformVersion: 11, statBarHeight: 63, takesScreenshot: true, viewportRect: {height: 1731, left: 0, top: 63, width: 1080}, warnings: {}, webStorageEnabled: false}
-Session ID: 8f893207-82b6-4042-8142-d47bc3e9344a
+Session ID: a5b9f883-e714-4e55-80ff-7e7776be2ba5
 *** Element info: {Using=id, value=com.weatherapp:id/tv_temperature}
 	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
 	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
@@ -38,7 +65,7 @@ Session ID: 8f893207-82b6-4042-8142-d47bc3e9344a
 	at io.appium.java_client.DefaultGenericMobileDriver.findElementById(DefaultGenericMobileDriver.java:69)
 	at io.appium.java_client.AppiumDriver.findElementById(AppiumDriver.java:1)
 	at io.appium.java_client.android.AndroidDriver.findElementById(AndroidDriver.java:1)
-	at Android.WeatherAppTest.Verify_AbuDhabi_Weather(WeatherAppTest.java:114)
+	at Android.WeatherAppTest.Verify_AbuDhabi_Weather(WeatherAppTest.java:125)
 	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)
 	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
 	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)
@@ -61,8 +88,8 @@ Session ID: 8f893207-82b6-4042-8142-d47bc3e9344a
 	at org.junit.runner.JUnitCore.run(JUnitCore.java:160)
 	at org.junit.runner.JUnitCore.run(JUnitCore.java:138)
 ... Removed 32 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m1">Android.WeatherAppTest#Verify_London_Weather</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m2">Android.WeatherAppTest#Verify_Riyadh_Weather</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m3">Android.WeatherAppTest#verifyMainView</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m2">Android.WeatherAppTest#Verify_London_Weather</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m3">Android.WeatherAppTest#Verify_Riyadh_Weather</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m4">Android.WeatherAppTest#verifyMainView</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
 </body>
 </html>

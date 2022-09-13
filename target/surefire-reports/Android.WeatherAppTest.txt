@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: Android.WeatherAppTest
 -------------------------------------------------------------------------------
-Tests run: 4, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 50.182 s <<< FAILURE! - in Android.WeatherAppTest
-Android.WeatherAppTest.Verify_AbuDhabi_Weather on Verify_AbuDhabi_Weather(Android.WeatherAppTest)  Time elapsed: 12.883 s  <<< FAILURE!
+Tests run: 5, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 57.83 s <<< FAILURE! - in Android.WeatherAppTest
+Android.WeatherAppTest.Verify_AbuDhabi_Weather on Verify_AbuDhabi_Weather(Android.WeatherAppTest)  Time elapsed: 13.151 s  <<< FAILURE!
 org.openqa.selenium.NoSuchElementException: 
 An element could not be located on the page using the given search parameters.
 For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
@@ -10,7 +10,11 @@ Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17
 System info: host: 'USTPALG1757', ip: '192.168.254.181', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_341'
 Driver info: com.microsoft.appcenter.appium.EnhancedAndroidDriver
 Capabilities {app: C:\Users\Antwan.Maddox\sour..., appPackage: com.weatherapp, databaseEnabled: false, desired: {app: C:\Users\Antwan.Maddox\sour..., deviceName: Android Emulator, platformName: android, platformVersion: 11.0}, deviceApiLevel: 30, deviceManufacturer: Google, deviceModel: sdk_gphone_x86, deviceName: emulator-5554, deviceScreenDensity: 420, deviceScreenSize: 1080x1920, deviceUDID: emulator-5554, javascriptEnabled: true, locationContextEnabled: false, networkConnectionEnabled: true, pixelRatio: 2.625, platform: LINUX, platformName: Android, platformVersion: 11, statBarHeight: 63, takesScreenshot: true, viewportRect: {height: 1731, left: 0, top: 63, width: 1080}, warnings: {}, webStorageEnabled: false}
-Session ID: 8f893207-82b6-4042-8142-d47bc3e9344a
+Session ID: a5b9f883-e714-4e55-80ff-7e7776be2ba5
 *** Element info: {Using=id, value=com.weatherapp:id/tv_temperature}
-	at Android.WeatherAppTest.Verify_AbuDhabi_Weather(WeatherAppTest.java:114)
+	at Android.WeatherAppTest.Verify_AbuDhabi_Weather(WeatherAppTest.java:125)
+
+Android.WeatherAppTest.QuickTest on QuickTest(Android.WeatherAppTest)  Time elapsed: 5.425 s  <<< FAILURE!
+java.lang.AssertionError
+	at Android.WeatherAppTest.QuickTest(WeatherAppTest.java:71)
 

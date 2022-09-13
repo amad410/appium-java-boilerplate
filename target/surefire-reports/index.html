@@ -24,7 +24,7 @@
     <div class="top-banner-root">
       <span class="top-banner-title-font">Test results</span>
       <br/>
-      <span class="top-banner-font-1">1 suite, 1 failed test</span>
+      <span class="top-banner-font-1">1 suite, 2 failed tests</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -91,7 +91,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">4 methods, 1 failed,   3 passed</span>
+                    <span class="method-stats">5 methods, 2 failed,   3 passed</span>
                   </li>
                   <li>
                     <span class="method-list-title failed">Failed methods</span>
@@ -100,6 +100,11 @@
                       <a href="#" panel-name="suite-Surefire_suite" class="show-methods failed suite-Surefire_suite"> (show)</a> <!-- show-methods failed suite-Surefire_suite -->
                     </span>
                     <div class="method-list-content failed suite-Surefire_suite">
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Surefire_suite" title="Android.WeatherAppTest" hash-for-method="QuickTest">QuickTest</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
                       <span>
                         <img width="3%" src="failed.png"/>
                         <a href="#" class="method navigator-link" panel-name="suite-Surefire_suite" title="Android.WeatherAppTest" hash-for-method="Verify_AbuDhabi_Weather">Verify_AbuDhabi_Weather</a> <!-- method navigator-link -->
@@ -149,6 +154,41 @@
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
+                  <a name="QuickTest">
+                  </a> <!-- QuickTest -->
+                  <span class="method-name">QuickTest</span>
+                  <div class="stack-trace">java.lang.AssertionError
+	at org.junit.Assert.fail(Assert.java:86)
+	at org.junit.Assert.assertTrue(Assert.java:41)
+	at org.junit.Assert.assertTrue(Assert.java:52)
+	at Android.WeatherAppTest.QuickTest(WeatherAppTest.java:71)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
+	at org.junit.rules.TestWatcher$1.evaluate(TestWatcher.java:55)
+	at org.junit.rules.RunRules.evaluate(RunRules.java:20)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:271)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:70)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:50)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:238)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:63)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:236)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:53)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:229)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:309)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:160)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:138)
+... Removed 28 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
                   <a name="Verify_AbuDhabi_Weather">
                   </a> <!-- Verify_AbuDhabi_Weather -->
                   <span class="method-name">Verify_AbuDhabi_Weather</span>
@@ -158,7 +198,7 @@ Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, tim
 System info: host: &apos;USTPALG1757&apos;, ip: &apos;192.168.254.181&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_341&apos;
 Driver info: com.microsoft.appcenter.appium.EnhancedAndroidDriver
 Capabilities {app: C:\Users\Antwan.Maddox\sour..., appPackage: com.weatherapp, databaseEnabled: false, desired: {app: C:\Users\Antwan.Maddox\sour..., deviceName: Android Emulator, platformName: android, platformVersion: 11.0}, deviceApiLevel: 30, deviceManufacturer: Google, deviceModel: sdk_gphone_x86, deviceName: emulator-5554, deviceScreenDensity: 420, deviceScreenSize: 1080x1920, deviceUDID: emulator-5554, javascriptEnabled: true, locationContextEnabled: false, networkConnectionEnabled: true, pixelRatio: 2.625, platform: LINUX, platformName: Android, platformVersion: 11, statBarHeight: 63, takesScreenshot: true, viewportRect: {height: 1731, left: 0, top: 63, width: 1080}, warnings: {}, webStorageEnabled: false}
-Session ID: 8f893207-82b6-4042-8142-d47bc3e9344a
+Session ID: a5b9f883-e714-4e55-80ff-7e7776be2ba5
 *** Element info: {Using=id, value=com.weatherapp:id/tv_temperature}
 	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
 	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
@@ -177,7 +217,7 @@ Session ID: 8f893207-82b6-4042-8142-d47bc3e9344a
 	at io.appium.java_client.DefaultGenericMobileDriver.findElementById(DefaultGenericMobileDriver.java:69)
 	at io.appium.java_client.AppiumDriver.findElementById(AppiumDriver.java:1)
 	at io.appium.java_client.android.AndroidDriver.findElementById(AndroidDriver.java:1)
-	at Android.WeatherAppTest.Verify_AbuDhabi_Weather(WeatherAppTest.java:114)
+	at Android.WeatherAppTest.Verify_AbuDhabi_Weather(WeatherAppTest.java:125)
 	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)
 	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
 	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)
@@ -285,28 +325,32 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(4);
+data.addRows(5);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'verifyMainView')
 data.setCell(0, 2, 'Android.WeatherAppTest')
-data.setCell(0, 3, 49762);
+data.setCell(0, 3, 57366);
 data.setCell(1, 0, 1)
 data.setCell(1, 1, 'Verify_Riyadh_Weather')
 data.setCell(1, 2, 'Android.WeatherAppTest')
-data.setCell(1, 3, 43227);
+data.setCell(1, 3, 50427);
 data.setCell(2, 0, 2)
-data.setCell(2, 1, 'Verify_AbuDhabi_Weather')
+data.setCell(2, 1, 'QuickTest')
 data.setCell(2, 2, 'Android.WeatherAppTest')
-data.setCell(2, 3, 30102);
+data.setCell(2, 3, 36897);
 data.setCell(3, 0, 3)
-data.setCell(3, 1, 'Verify_London_Weather')
+data.setCell(3, 1, 'Verify_AbuDhabi_Weather')
 data.setCell(3, 2, 'Android.WeatherAppTest')
-data.setCell(3, 3, 17221);
+data.setCell(3, 3, 31471);
+data.setCell(4, 0, 4)
+data.setCell(4, 1, 'Verify_London_Weather')
+data.setCell(4, 2, 'Android.WeatherAppTest')
+data.setCell(4, 3, 18322);
 window.suiteTableData['Surefire_suite']= { tableData: data, tableDiv: 'times-div-Surefire_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 2 minutes</span>
+              <span class="suite-total-time">Total running time: 3 minutes</span>
               <div id="times-div-Surefire_suite">
               </div> <!-- times-div-Surefire_suite -->
             </div> <!-- times-div -->
@@ -341,11 +385,17 @@ return data;
                 <img src="failed.png">
                 </img>
                 <span class="method-name">Verify_AbuDhabi_Weather</span>
-                <span class="method-start">0 ms</span>
+                <span class="method-start">1 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">QuickTest</span>
+                <span class="method-start">1 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">Verify_Riyadh_Weather</span>
-                <span class="method-start">0 ms</span>
+                <span class="method-start">1 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">verifyMainView</span>

@@ -1,13 +1,9 @@
 package Android;
 
 import Base.BaseTest;
-import Pages.MainPage;
-import Utils.WaitUtils;
-import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.InteractsWithApps;
 import io.appium.java_client.MobileElement;
-import io.appium.java_client.android.AndroidDriver;
-import org.eclipse.sisu.inject.Soft;
+import io.appium.java_client.remote.MobileCapabilityType;
 import org.junit.*;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import java.io.FileInputStream;
@@ -19,19 +15,18 @@ import com.microsoft.appcenter.appium.EnhancedAndroidDriver;
 import org.junit.rules.TestWatcher;
 import org.junit.Rule;
 import org.testng.asserts.SoftAssert;
-import org.testng.reporters.jq.Main;
+
 
 public class WeatherAppTest {
-
+    @Rule
+    public TestWatcher watcher = Factory.createWatcher();
     public static BaseTest base = new BaseTest();
    // protected static ThreadLocal<AppiumDriver> _driver = new ThreadLocal<AppiumDriver>();
     InputStream inputStream;
     private static EnhancedAndroidDriver<MobileElement> _edriver;
     private static SoftAssert _testAssert;
-    MainPage mainPage;
 
-    @Rule
-    public TestWatcher watcher = Factory.createWatcher();
+
 
     @BeforeClass
     public static void SetupState() throws Exception {
@@ -52,14 +47,31 @@ public class WeatherAppTest {
         base.getProps().get().load(inputStream);
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability("platformName",  base.getProps().get().getProperty("platformName"));
-        capabilities.setCapability("platformVersion",  base.getProps().get().getProperty("platformVersion"));
-        capabilities.setCapability("deviceName",  base.getProps().get().getProperty("deviceName"));
-        capabilities.setCapability("app",
+       /* capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME,"UiAutomator2");
+        //capabilities.setCapability("platformName",  base.getProps().get().getProperty("platformName"));
+        //capabilities.setCapability("platformVersion",  base.getProps().get().getProperty("platformVersion"));
+       // capabilities.setCapability("deviceName",  base.getProps().get().getProperty("deviceName"));
+        capabilities.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, 7913);
+        capabilities.setCapability(MobileCapabilityType.APP,
                 System.getProperty("user.dir") +  base.getProps().get().getProperty("app"));
 
-        _edriver = Factory.createAndroidDriver(new URL("http://localhost:4723/wd/hub"), capabilities);
+        _edriver = Factory.createAndroidDriver(new URL("http://localhost:4723/wd/hub"), capabilities);*/
 
+
+
+
+
+        capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, "android");
+        capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "foo");
+
+        capabilities.setCapability(MobileCapabilityType.APP, "C:\\Users\\Antwan.Maddox\\source\\repos\\appium-java-boilerplate\\apps\\weather-app-debug.apk");
+        //capabilities.setCapability(MobileCapabilityType.APP, "[path to local repo]/AppCenter-Test-Samples/Appium/Android/swiftnotes.apk");
+        capabilities.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, 7913);
+        capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, "uiautomator2");
+
+        URL url = new URL("http://localhost:4723/wd/hub");
+
+        _edriver = Factory.createAndroidDriver(url, capabilities);
     }
     @Test
     public void verifyMainView(){

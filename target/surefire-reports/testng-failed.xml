@@ -5,6 +5,7 @@
     <classes>
       <class name="org.junit.runner.Description">
         <methods>
+          <include name="QuickTest"/>
           <include name="Verify_AbuDhabi_Weather"/>
         </methods>
       </class> <!-- org.junit.runner.Description -->
