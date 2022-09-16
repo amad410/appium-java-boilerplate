@@ -48,6 +48,8 @@ public class DriverManager {
                         capabilities.setCapability("platformName", props.getProperty("platformName"));
                         capabilities.setCapability("platformVersion", props.getProperty("platformVersion"));
                         capabilities.setCapability("deviceName", props.getProperty("deviceName"));
+                        capabilities.setCapability("app",
+                                System.getProperty("user.dir") + props.getProperty("app"));
                         driver = new IOSDriver(new URL("http://localhost:4723/wd/hub"), new CapabilitiesManager().getCaps(params,propertyFileName));
                         break;
                 }
