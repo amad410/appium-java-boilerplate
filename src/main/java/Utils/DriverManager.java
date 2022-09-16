@@ -31,10 +31,10 @@ public class DriverManager {
         if(driver == null){
             try{
                 utils.log().info("initializing Appium driver");
+                DesiredCapabilities capabilities = new DesiredCapabilities();
+                Properties props = new PropertyManager().getProps(propertyFileName);
                 switch(params.getPlatformName()){
                     case "Android":
-                        Properties props = new PropertyManager().getProps(propertyFileName);
-                        DesiredCapabilities capabilities = new DesiredCapabilities();
                         capabilities.setCapability("platformName", props.getProperty("platformName"));
                         capabilities.setCapability("platformVersion", props.getProperty("platformVersion"));
                         capabilities.setCapability("deviceName", props.getProperty("deviceName"));
@@ -45,6 +45,9 @@ public class DriverManager {
                         //driver = new AndroidDriver(new URL("http://localhost:4723/wd/hub"), new CapabilitiesManager().getCaps(params,propertyFileName));
                         break;
                     case "iOS":
+                        capabilities.setCapability("platformName", props.getProperty("platformName"));
+                        capabilities.setCapability("platformVersion", props.getProperty("platformVersion"));
+                        capabilities.setCapability("deviceName", props.getProperty("deviceName"));
                         driver = new IOSDriver(new URL("http://localhost:4723/wd/hub"), new CapabilitiesManager().getCaps(params,propertyFileName));
                         break;
                 }
